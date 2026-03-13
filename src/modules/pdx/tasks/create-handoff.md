@@ -8,6 +8,22 @@ core handoff engine for the PDX Design Ops agent.
 
 Before creating any handoff artifact, perform these checks in order:
 
+### 0. Load BMAD Project State (BEFORE all other checks)
+- Read `_bmad-output/implementation-artifacts/sprint-status.yaml` if it exists
+  - Note current sprint number
+  - Note existing story count and highest story ID (e.g., STORY-47)
+  - Note which epics are active and highest epic ID
+  - Note what's TODO vs IN PROGRESS vs DONE
+- Read `_bmad-output/planning-artifacts/` for existing PRD, architecture docs, and epic files
+- **Brownfield vs Greenfield determination:**
+  - IF sprint-status.yaml exists → this is BROWNFIELD. Continue from existing state. NEVER start numbering from 1. Adapt all output to fit the existing structure.
+  - IF sprint-status.yaml does NOT exist → this is GREENFIELD. Start fresh but use BMAD-compatible formats.
+- This context is CRITICAL for handoff — it determines:
+  - Story numbering (new stories start after the highest existing ID)
+  - Sprint assignment (current sprint, or next if current is full)
+  - Epic assignment (existing epic or new epic continuing the numbering)
+  - What's already been built (don't hand off work that's DONE)
+
 ### 1. Load ALL Prior PDX Artifacts
 - Read `_bmad-output/planning-artifacts/project-context.md` if it exists
 - Read `_bmad-output/planning-artifacts/prd.md` if it exists
@@ -82,8 +98,48 @@ references:
 - [ ] Dependencies identified (blocked-by / blocks)
 - [ ] A developer can implement without asking a designer
 
+## BMAD-Compatible Story Generation
+
+When generating stories (via jira-stories template or as part of handoff), stories MUST
+integrate with existing BMAD sprint state:
+
+### Story Numbering
+- Read the highest story ID from `_bmad-output/implementation-artifacts/sprint-status.yaml`
+- New stories start at the next sequential ID (e.g., if STORY-47 exists, start at STORY-48)
+- Never reuse or conflict with existing story IDs
+
+### Story Format
+Stories must be compatible with BMAD's dev-story workflow:
+```yaml
+story_id: "STORY-XX"
+title: "As a [persona], I want [action], so that [outcome]"
+status: "TODO"  # TODO | IN PROGRESS | READY FOR REVIEW | DONE
+epic: "EPIC-XX"
+points: X
+priority: "P0"  # P0 | P1 | P2
+acceptance_criteria:
+  - "Given [context], When [action], Then [result]"
+design_artifacts:
+  - "_bmad-output/pdx-artifacts/[referenced-file].md"
+```
+
+### Sprint Assignment
+- If the current sprint has capacity, assign stories to the current sprint
+- If the current sprint is full (>20 story points remaining), assign to the next sprint
+- If sprint-status.yaml doesn't exist, generate stories without sprint assignment and warn the user
+
+### Epic Numbering
+- Continue from existing epic numbering (e.g., if EPIC-5 exists, new epics start at EPIC-6)
+- Assign to existing epics when the scope matches
+
+### Output Locations
+- Story files: `_bmad-output/implementation-artifacts/stories/STORY-XX-[slug].yaml`
+- Update sprint-status.yaml: APPEND new stories to the existing file (never overwrite)
+- Stories should be immediately consumable by BMAD's `/dev-story` workflow
+
 ## Output Location
-Save to: `_bmad-output/pdx-artifacts/handoff-[type]-[scope].md`
+- Handoff specs: `_bmad-output/pdx-artifacts/handoff-[type]-[scope].md`
+- Stories: `_bmad-output/implementation-artifacts/stories/`
 
 ## Post-Execution
 After delivering the handoff artifact:
@@ -91,3 +147,5 @@ After delivering the handoff artifact:
 2. Flag any gaps that need designer or PM input
 3. List any dependent stories or follow-up specs needed
 4. Confirm whether Sage's pre-handoff QA has been run
+5. Report story IDs generated and sprint assignment
+6. Confirm sprint-status.yaml was updated

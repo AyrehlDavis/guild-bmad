@@ -8,6 +8,21 @@ artifact generation engine for the PDX Interaction Designer agent.
 
 Before generating any artifact, perform these checks in order:
 
+### 0. Load BMAD Project State (BEFORE all other checks)
+- Read `_bmad-output/implementation-artifacts/sprint-status.yaml` if it exists
+  - Note current sprint number
+  - Note existing story count and highest story ID
+  - Note which epics are active
+  - Note what's TODO vs IN PROGRESS vs DONE
+- **Brownfield vs Greenfield determination:**
+  - IF sprint-status.yaml exists → this is BROWNFIELD. Continue from existing state. NEVER start numbering from 1. Adapt all output to fit the existing structure.
+  - IF sprint-status.yaml does NOT exist → this is GREENFIELD. Start fresh but use BMAD-compatible formats.
+- This context informs all artifact generation:
+  - Don't redesign things that are already DONE
+  - Reference existing story IDs when relevant
+  - Align recommendations with current sprint priorities
+  - Use the same naming conventions the project uses
+
 ### 1. Load Project Context
 - Read `_bmad-output/planning-artifacts/project-context.md` if it exists
 - Read `_bmad-output/planning-artifacts/prd.md` if it exists

@@ -1,0 +1,38 @@
+name: pdx-design-sprint
+description: "Run the full PDX design pipeline — research, design, content, QA, handoff"
+module: pdx
+trigger: "DS or fuzzy match on design-sprint"
+agents_required:
+  - ux-researcher
+  - interaction-designer
+  - content-strategist
+  - design-qa
+  - design-ops
+inputs:
+  - sprint-status.yaml
+  - project-context.md
+  - prd.md
+  - pdx-artifacts/
+outputs:
+  - pdx-artifacts/ (research, designs, content, QA)
+  - implementation-artifacts/stories/ (BMAD-compatible stories)
+  - implementation-artifacts/sprint-status.yaml (updated)
+variants:
+  - name: quick-sprint
+    trigger: "QS or fuzzy match on quick-sprint"
+    description: "Skip research, run Kai → Echo → Sage → Relay"
+    agents_required:
+      - interaction-designer
+      - content-strategist
+      - design-qa
+      - design-ops
+  - name: research-only
+    trigger: "RO or fuzzy match on research-only"
+    description: "Research only — run Nova, save findings for later"
+    agents_required:
+      - ux-researcher
+  - name: handoff-only
+    trigger: "HO or fuzzy match on handoff-only"
+    description: "Handoff only — generate stories from existing PDX artifacts"
+    agents_required:
+      - design-ops
