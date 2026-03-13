@@ -71,24 +71,73 @@ Reads everything from Phases 1-4 + sprint-status.yaml:
 - Save specs and tokens to `_bmad-output/pdx-artifacts/`
 - Report: "Phase 5 complete — [n] stories generated ([story range])"
 
+### Phase 6: PM Review
+Load BMAD's PM agent to review Relay's output.
+
+The PM validates:
+- Do the stories align with the PRD and product goals?
+- Is the prioritization correct (P0/P1/P2)?
+- Are the acceptance criteria complete and testable?
+- Do the story descriptions match the intended user outcomes?
+- Are there missing stories that the design artifacts imply but Relay didn't create?
+- Are there stories that are out of scope and should be removed or deferred?
+- Do epic groupings make sense?
+
+PM actions:
+- IF stories are aligned → approve and pass to SM
+- IF stories need adjustment → modify titles, acceptance criteria, or priority, then pass to SM
+- IF stories are fundamentally misaligned with PRD → flag to user with specific concerns, suggest changes, get confirmation before continuing
+
+Output: Updated story files with PM approval status
+Save PM review notes to `_bmad-output/pdx-artifacts/pm-review-[scope].md`
+Report: "Phase 6 complete — PM review: [APPROVED/APPROVED WITH CHANGES/FLAGGED]"
+
+### Phase 7: SM Sprint Planning
+Load BMAD's SM agent to plan the sprint.
+
+The SM validates and organizes:
+- Read sprint-status.yaml for current sprint capacity and velocity
+- Check what's already in the current sprint (don't overload)
+- Validate story point estimates against team velocity
+- Check dependencies between new stories and existing work
+- Sequence stories within the sprint (what needs to be built first?)
+- IF total points exceed sprint capacity → split across sprints, prioritize P0 first
+- Assign stories to appropriate sprint(s)
+
+SM actions:
+- Update sprint-status.yaml with final sprint assignments
+- Set story statuses to ready-for-dev
+- Create sprint summary with:
+  - Sprint goal
+  - Stories included (with sequence)
+  - Total points
+  - Dependencies and blockers
+  - Capacity check (points assigned vs team velocity)
+
+Output: Updated sprint-status.yaml, sprint summary
+Save sprint plan to `_bmad-output/implementation-artifacts/sprint-plan-[sprint-number].md`
+Report: "Phase 7 complete — stories assigned to Sprint [number], [points] points planned"
+
 ## Post-Pipeline Report
-After all 5 phases complete, output a summary:
+After all 7 phases complete, output a summary:
 ```
 PDX Design Sprint Complete — [Feature/Scope]
 
-Pipeline: Nova → Kai → Echo → Sage → Relay
+Pipeline: Nova → Kai → Echo → Sage → Relay → PM → SM
 
 Artifacts produced: [count]
 Research: [list]
 Designs: [list]
 Content: [list]
 QA verdict: [GO/CONDITIONAL/NO-GO]
+PM review: [APPROVED/APPROVED WITH CHANGES/FLAGGED]
 Stories generated: [count] ([story range])
-Sprint: [sprint number]
+Sprint assignment: Sprint [number]
 Total points: [sum]
+Sprint capacity: [points assigned] / [velocity]
 Conditions (if any): [list]
 
-Ready for: @dev to pick up [first story ID]
+Ready for: @dev to pick up [first story ID] with /ds
 ```
 
 ## Error Handling
@@ -96,9 +145,10 @@ Ready for: @dev to pick up [first story ID]
 - If sprint-status.yaml doesn't exist, warn user and create stories without sprint assignment
 - If scope is too broad (>20 stories generated), suggest breaking into multiple sprints
 - If Sage issues NO-GO, the pipeline stops — report all blockers and which phase produced them
+- If PM flags stories as fundamentally misaligned, pause for user confirmation before continuing
 
 ## Quick Sprint Variant
-Skip Phase 1 (Nova) when research already exists. Runs: Kai → Echo → Sage → Relay.
+Skip Phase 1 (Nova) when research already exists. Runs: Kai → Echo → Sage → Relay → PM → SM.
 Triggered by `/quick-sprint`.
 
 ## Research Only Variant
@@ -106,5 +156,5 @@ Run only Phase 1 (Nova). Save findings for later pipeline execution.
 Triggered by `/research-only`.
 
 ## Handoff Only Variant
-Skip Phases 1-4. Run only Phase 5 (Relay) against existing pdx-artifacts/.
+Skip Phases 1-4. Run Relay → PM → SM against existing pdx-artifacts/.
 Triggered by `/handoff-only`.
