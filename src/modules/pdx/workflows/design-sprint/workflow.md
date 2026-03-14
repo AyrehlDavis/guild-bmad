@@ -58,12 +58,30 @@ Create PRD from product brief:
 - Report: "Phase 1 complete — PRD created with [n] epics"
 
 ### Phase 2: Nova (PDX Research)
-Generate foundational research from PRD:
-- Generate personas from PRD user descriptions
-- Competitive audit of similar products
-- JTBD mapping for core user jobs
-- Output: `personas.md`, `competitive-audit.md`, `jtbd.md` → `_bmad-output/pdx-artifacts/`
-- Report: "Phase 2 complete — [n] research artifacts produced"
+Generate foundational research from PRD. Nova auto-selects methods based on what the project needs:
+
+**Always run (greenfield foundation):**
+- `/persona-gen` — generate personas from PRD user descriptions
+- `/competitive-audit` — competitive analysis of similar products
+- `/jtbd` — map core user jobs with functional, emotional, and social dimensions
+
+**Run if needed (based on scope and complexity):**
+- `/journey-map` — if the feature involves multi-step user flows
+- `/heuristic-eval` — if redesigning an existing product or feature
+- `/interview-script` — if user research sessions are planned
+- `/stakeholder-interview` — if multiple stakeholders have input on this feature
+
+**Run if requested:**
+- `/card-sort` — if information architecture decisions are needed
+- `/survey` — if quantitative validation is needed before design
+- `/empathy-map` — if user segments need deeper emotional analysis
+- `/ab-test` — if comparing design approaches quantitatively
+
+Nova selects automatically based on PRD content and scope. If unsure, Nova asks one question: "Do you want foundational research only, or should I go deeper?"
+
+- Output: `personas.md`, `competitive-audit.md`, `jtbd.md` (minimum) → `_bmad-output/pdx-artifacts/`
+- Additional artifacts based on methods selected
+- Report: "Phase 2 complete — [n] research artifacts produced using [methods list]"
 
 ### Phase 3: Kai (PDX Design)
 Create full product design from research:
@@ -110,7 +128,14 @@ Generate all implementation artifacts:
 - Design tokens in W3C DTCG format
 - Output: stories → `_bmad-output/implementation-artifacts/stories/`
 - Output: `component-specs.md`, `design-tokens.json` → `_bmad-output/pdx-artifacts/`
-- Report: "Phase 7 complete — [n] stories generated ([story range])"
+
+After generating stories, Relay also compiles all PDX artifacts into
+`_bmad-output/planning-artifacts/UX_Design.md` for BMAD dev agent compatibility.
+This ensures the dev agent has a consolidated UX spec in the format it expects,
+replacing Sally's output with PDX's richer pipeline output. Run task
+`export-ux-design.md` automatically — no separate command needed.
+
+- Report: "Phase 7 complete — [n] stories generated ([story range]), UX_Design.md compiled"
 
 ### Phase 8: PM (BMAD) — Story Review
 Validate stories against PRD:
@@ -144,12 +169,26 @@ Stories are ready for development:
 For existing projects with sprint-status.yaml.
 
 ### Phase 2: Nova (PDX Research)
-Targeted research on the feature scope:
-- Reference existing personas (update if needed)
-- Heuristic eval or journey map for the specific feature
-- Skip competitive audit unless feature is entirely new
+Targeted research on the feature scope. Nova auto-selects methods based on what's needed:
+
+**Always run (brownfield baseline):**
+- Reference existing personas — update if the feature introduces new user types
+- `/heuristic-eval` or `/journey-map` for the specific feature area
+
+**Run if needed (based on feature scope):**
+- `/competitive-audit` — only if the feature is entirely new to the product
+- `/usability-test` — if redesigning an existing flow with known pain points
+- `/empathy-map` — if the feature targets a user segment not well-covered by existing personas
+
+**Skip unless requested:**
+- `/persona-gen` — personas already exist, only update
+- `/jtbd` — existing JTBD likely covers this scope
+- `/stakeholder-interview` — only if new stakeholders are involved
+
+Nova selects automatically based on existing artifacts and feature scope.
+
 - Output → `_bmad-output/pdx-artifacts/`
-- Report: "Phase 2 complete — [n] research artifacts produced"
+- Report: "Phase 2 complete — [n] research artifacts produced using [methods list]"
 
 ### Phase 3: Kai (PDX Design)
 Design solutions for the feature:
@@ -182,7 +221,13 @@ Handoff continuing from existing state:
 - Component specs for new components only
 - Tokens added to existing token file
 - Output: stories → `_bmad-output/implementation-artifacts/stories/`
-- Report: "Phase 7 complete — [n] stories generated ([story range])"
+
+After generating stories, Relay also updates
+`_bmad-output/planning-artifacts/UX_Design.md` with the new/changed sections.
+If UX_Design.md doesn't exist yet, generate it fresh. If it exists, update
+only the sections affected by this sprint's design work.
+
+- Report: "Phase 7 complete — [n] stories generated ([story range]), UX_Design.md updated"
 
 ### Phase 8: PM (BMAD) — Story Review
 Same as greenfield Phase 8.

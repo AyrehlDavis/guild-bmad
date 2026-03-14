@@ -12,14 +12,15 @@ Built for designers who want structured, repeatable AI collaboration. The AI han
 
 | Agent | Role | Commands | What it does |
 |-------|------|----------|-------------|
-| **Nova 🔍** | UX Researcher | 10 | Heuristic evaluations, competitive audits, persona generation, journey maps, interview scripts, research synthesis, usability test plans, accessibility audits, JTBD mapping |
+| **Nova 🔍** | UX Researcher | 22 | Heuristic evaluations, competitive audits, persona generation, journey maps, interview scripts, research synthesis, usability test plans, accessibility audits, JTBD mapping, card sorting, A/B tests, surveys, stakeholder interviews, workshops, affinity diagrams, service blueprints, empathy maps, story maps, diary studies, method recommendations |
 | **Kai 🔀** | Interaction Designer | 11 | User flows, swim lanes, site maps, state diagrams, task analyses, wireframes, interaction maps, flow audits, React export, Figma export |
 | **Echo ✍️** | Content Strategist | 9 | Microcopy, error message systems, voice/tone guidelines, empty states, onboarding copy, content audits, naming |
 | **Sage 🛡️** | Design QA | 9 | Design review, design system compliance, responsive checks, accessibility QA, implementation fidelity, consistency audits, pre-handoff quality gates |
-| **Relay 📦** | Design Ops | 9 | Developer handoff specs, Jira stories (Given/When/Then), design tokens (W3C DTCG), component specs, annotations, changelogs, release notes |
+| **Relay 📦** | Design Ops | 10 | Developer handoff specs, Jira stories (Given/When/Then), design tokens (W3C DTCG), component specs, annotations, changelogs, release notes, UX_Design.md BMAD export |
+| **Lux 🎨** | Visual Designer | 14 | Visual critique, component polish, visual hierarchy, spacing, color refinement, typography, auto-capture critique (Playwright/Simulator), responsive scans, visual diffs, animation review, Figma export |
 | **PDX 🎯** | Orchestrator | 6 | Coordinates all agents through the full pipeline with one command. Auto-detects greenfield vs brownfield projects |
 
-**48+ commands · 37+ templates · 6 sidecar knowledge bases**
+**82+ commands · 47+ templates · 7 sidecar knowledge bases**
 
 ---
 

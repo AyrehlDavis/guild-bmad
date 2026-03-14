@@ -63,5 +63,54 @@ color: theme.colors.textSecondary,
 fontSize: 12, // drop a size tier
 ```
 
+## Playwright Capture Reference
+
+### iOS Simulator
+```bash
+# List booted simulators
+xcrun simctl list devices booted
+
+# Screenshot
+xcrun simctl io booted screenshot /tmp/capture.png
+
+# Record video
+xcrun simctl io booted recordVideo /tmp/recording.mp4
+# (Ctrl+C to stop)
+
+# Deep link to specific screen
+xcrun simctl openurl booted "myapp://packing"
+```
+
+### Playwright Web Capture
+```javascript
+// Navigate
+await page.goto('http://localhost:8081');
+
+// Set viewport
+await page.setViewportSize({ width: 375, height: 812 });
+
+// Wait for content
+await page.waitForLoadState('networkidle');
+
+// Full page screenshot
+await page.screenshot({ path: 'capture.png', fullPage: true });
+
+// Element screenshot
+await page.locator('.packing-list').screenshot({ path: 'component.png' });
+
+// Multiple viewports
+for (const width of [375, 768, 1440]) {
+  await page.setViewportSize({ width, height: 900 });
+  await page.screenshot({ path: `capture-${width}.png` });
+}
+```
+
+### Capture Best Practices
+- Always wait 1-2 seconds after navigation for animations to settle
+- Capture full page, not just viewport — scroll content matters
+- For React Native: hot reload takes 1-3 seconds after code changes
+- Save all captures to _bmad-output/pdx-artifacts/captures/
+- Keep captures timestamped for before/after comparison
+
 ## The #1 Rule
 When in doubt, remove something. The best UI fix is almost always subtraction.

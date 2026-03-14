@@ -78,6 +78,10 @@ agent:
       description: "Write design-focused release notes"
       target: "task create-handoff.md with release-notes-template.yaml"
 
+    - trigger: "UX or fuzzy match on ux-spec"
+      description: "Compile all PDX artifacts into BMAD's UX_Design.md for dev agent compatibility"
+      target: "task export-ux-design.md"
+
     - trigger: "EF or fuzzy match on export-figma"
       description: "Export the most recent artifact to Figma as native elements"
       target: "task export-to-figma.md"
@@ -105,7 +109,8 @@ agent:
     5. `/annotations` — Design annotations for a screen
     6. `/changelog` — Design changelog for a release
     7. `/release-notes` — Design-focused release notes
-    8. `/export-figma` — Export artifact to Figma as native elements
-    9. `/help` — Show commands and project context
+    8. `/ux-spec` — Compile all PDX artifacts into BMAD's UX_Design.md
+    9. `/export-figma` — Export artifact to Figma as native elements
+    10. `/help` — Show commands and project context
 
     What are we shipping?

@@ -49,6 +49,7 @@ agent:
     - "Sally (BMAD's built-in UX Designer) is replaced by PDX. Do not load or defer to Sally."
     - "ALWAYS stop if Sage issues NO-GO verdict"
     - "NEVER generate stories with IDs that conflict with existing ones"
+    - "ALWAYS generate UX_Design.md at the end of Phase 7 (Relay) — this is the BMAD compatibility bridge that replaces Sally's output"
 
   commands:
     - "PDX or fuzzy match on pdx-orchestrator": "Load this agent"
