@@ -1,8 +1,8 @@
 # Visual Critique
 
 ## Purpose
-Provide a focused visual critique of a screen. Identify the top 3 visual issues
-and provide specific fixes for each.
+Provide actionable design feedback on a screen or component, covering
+UI patterns, accessibility, visual polish, and interaction design.
 
 ## Pre-flight Checks
 
@@ -49,65 +49,112 @@ focus on first?"
 This prevents critiquing against the wrong goals. If the designer says "I want
 the priority labels to be prominent," don't suggest hiding them.
 
-## Critique Framework
+## Critique Framework (evaluate ALL of these)
 
-Evaluate in this order (stop at 3 issues — don't overwhelm):
+### 1. Pattern Check
+- Is this the right UI pattern for the task? (reference ui-patterns-reference.md)
+- Are patterns used correctly? (e.g., bottom sheet vs modal, tabs vs segmented control)
+- Are there missing patterns? (e.g., no empty state, no loading state, no error handling)
+- Anti-patterns present? (e.g., hamburger hiding primary nav on desktop)
 
-### 1. Visual Hierarchy
-- What does the eye see first? Is that the right thing?
-- Are elements competing for attention at the same level?
-- Is there a clear primary → secondary → tertiary reading order?
+### 2. Accessibility Audit (reference accessibility-reference.md)
+- Color contrast: all text >= 4.5:1? Large text >= 3:1?
+- Touch targets: all interactive elements >= 44dp?
+- Focus indicators: visible and not hidden by overlays?
+- Labels: every form field has a visible label (not just placeholder)?
+- Color independence: info conveyed by more than just color?
+- Screen reader: proper alt text, roles, labels, heading hierarchy?
+- Keyboard: logical tab order, no traps, escape closes overlays?
+- Motion: respects prefers-reduced-motion?
 
-### 2. Spacing & Rhythm
-- Is the spacing consistent (on the 4/8/12/16/24/32/48 scale)?
-- Is there enough breathing room between groups?
-- Do related elements feel grouped? Do unrelated elements feel separated?
+### 3. Visual Hierarchy
+- Squint test: is the primary element obvious?
+- One primary action per screen?
+- Size/weight/color hierarchy consistent?
+- Whitespace creating the right groupings?
 
-### 3. Visual Noise
-- Are there elements that can be removed without losing information?
-- Are there redundant visual indicators (color + icon + text all saying the same thing)?
-- Is chrome (borders, backgrounds, dividers) competing with content?
+### 4. Spacing & Layout
+- On the 4/8/12/16/24/32/48 scale?
+- Proximity principle: related items closer than unrelated?
+- Consistent padding across similar containers?
+- Safe areas respected (notch, home indicator)?
 
-### 4. Typography
-- Are there too many font sizes on screen? (max 3: primary, secondary, tertiary)
-- Is the weight hierarchy clear? (one bold level, one regular, one light/muted)
-- Is line height comfortable for reading?
+### 5. Typography
+- Max 3 sizes per screen?
+- Weight hierarchy: semibold for headings, medium for labels, regular for body?
+- Line height: 1.5 for body text?
+- Line length: 50-75 characters?
 
-### 5. Color
-- Is color earning its place? (every color should communicate something)
-- Are there too many colors competing? (max 2-3 semantic colors per screen)
-- Is contrast sufficient for readability?
+### 6. Color
+- Semantic usage? (every color has a meaning)
+- 60-30-10 ratio?
+- Passes contrast in both light and dark mode?
+- Not more than 4-5 distinct colors per screen?
+
+### 7. States Coverage
+For every interactive element and data container:
+- [ ] Default/populated state
+- [ ] Empty state (with guidance)
+- [ ] Loading state (skeleton or spinner)
+- [ ] Error state (with recovery action)
+- [ ] Disabled state (with explanation)
+- [ ] Selected/active state
+- [ ] Hover/press state (feedback)
+
+### 8. Platform Compliance
+- iOS: follows HIG? (nav bars, tab bars, gestures, safe areas)
+- Android: follows M3? (FAB, bottom nav, surface elevation)
+- Web: follows established conventions? (breadcrumbs, skip nav, responsive)
+
+### 9. Interaction Quality
+- Clear affordances (buttons look tappable, links look like links)?
+- Proper feedback on every interaction (pressed state, loading, result)?
+- No dead ends (every screen has a way forward and a way back)?
+- Error recovery (can the user undo, retry, or escape)?
 
 ## Output Format
 
-Keep it SHORT. This is a pairing session, not a report.
+Rate each area and give the top fixes:
 
 ```
-**Screen: [name]**
+**Screen: [name]** (captured at [viewport])
 
-Your goal: [restate what they told you]
+| Area | Rating | Key Issue |
+|------|--------|-----------|
+| UI Patterns | pass/warn/fail | [one-line summary] |
+| Accessibility | pass/warn/fail | [one-line summary] |
+| Visual Hierarchy | pass/warn/fail | [one-line summary] |
+| Spacing | pass/warn/fail | [one-line summary] |
+| Typography | pass/warn/fail | [one-line summary] |
+| Color | pass/warn/fail | [one-line summary] |
+| States | pass/warn/fail | [one-line summary] |
+| Platform | pass/warn/fail | [one-line summary] |
+| Interaction | pass/warn/fail | [one-line summary] |
 
-**Fix 1 (highest impact): [issue name]**
-[1-2 sentence description of what's wrong and why]
+**Top 3 Fixes (highest impact):**
+
+**Fix 1: [issue] — [area]**
+[What's wrong + what I see + why it matters]
 [code fix]
 
-**Fix 2: [issue name]**
-[1-2 sentence description]
+**Fix 2: [issue] — [area]**
+[What's wrong + why + fix]
 [code fix]
 
-**Fix 3: [issue name]**
-[1-2 sentence description]
+**Fix 3: [issue] — [area]**
+[What's wrong + why + fix]
 [code fix]
 
-Want me to apply any of these? Or show a before/after?
+Additional issues (lower priority): [list remaining]
 ```
 
 ## Rules
-- MAX 3 issues per critique. The designer can ask for more.
+- Rate ALL 9 areas in the summary table, but only detail the top 3 fixes.
+- The designer can ask for more detail on any area.
 - EVERY issue gets a code fix — no "you should consider..." without code.
 - Code fixes are React Native StyleSheet / Tailwind / CSS — match what the project uses.
-- Keep descriptions under 2 sentences each.
-- Don't critique things the designer didn't ask about unless they're critical.
+- Keep fix descriptions under 2 sentences each.
+- Don't critique things the designer didn't ask about unless they're critical (accessibility failures are always critical).
 
 ## Output Location
 Save to: `_bmad-output/pdx-artifacts/visual-critique-[scope].md`
