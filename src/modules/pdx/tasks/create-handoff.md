@@ -69,6 +69,31 @@ Before generating, restate the scope back to the user:
 - The dev agent follows these references to get full design context
 - Don't inline the entire design spec in the story — reference it
 
+### Story Format Rules (CRITICAL — BMAD Compatibility)
+
+Every story file MUST match BMAD's dev-story template exactly. The dev agent
+expects these sections in this order:
+
+1. `# Story {epic}.{story}: {title}` — H1 header
+2. `## Story` — User story in As a/I want to/So that format + description
+3. `## Acceptance Criteria` — Strict BDD (Given/When/Then), numbered, no named ACs
+4. `## Tasks / Subtasks` — Checkboxes with AC references in parentheses
+5. `## Dev Notes` — Technical guidance
+   - `### Project Structure Notes` — File paths for new/modified files
+   - `### References` — Links to PRD, architecture, PDX artifacts, related stories
+6. `## Dev Agent Record` — Empty scaffolding (dev agent fills this in)
+   - `### Agent Model Used`
+   - `### Debug Log References`
+   - `### Completion Notes List`
+   - `### File List`
+
+DO NOT:
+- Add a ## Context section (fold into Dev Notes)
+- Use named ACs ("AC1 — Schema Migration") — use Given/When/Then only
+- Skip the Dev Agent Record section — it's required scaffolding
+- Skip Project Structure Notes — dev agent needs file paths
+- Skip References — dev agent needs artifact links
+
 ## Execution
 
 ### Output Format
@@ -153,8 +178,15 @@ design_artifacts:
 - Stories should be immediately consumable by BMAD's `/dev-story` workflow
 
 ## Output Location
-- Handoff specs: `_bmad-output/pdx-artifacts/handoff-[type]-[scope].md`
-- Stories: `_bmad-output/implementation-artifacts/stories/`
+
+Output paths are configurable via `kb_output_path` in module.yaml:
+- If `kb_output_path` is set to a KB project path (e.g., `projects/auth-system/`):
+  - PDX artifacts: `{kb_output_path}/pdx/`
+  - UX spec: `{kb_output_path}/ux-spec.md`
+- If `kb_output_path` is default (`_bmad-output/pdx-artifacts/`):
+  - Handoff specs: `_bmad-output/pdx-artifacts/handoff-[type]-[scope].md`
+  - UX spec: `_bmad-output/planning-artifacts/UX_Design.md`
+- Stories always write to: `_bmad-output/implementation-artifacts/stories/` (BMAD needs these locally)
 
 ## Post-Execution
 After delivering the handoff artifact:

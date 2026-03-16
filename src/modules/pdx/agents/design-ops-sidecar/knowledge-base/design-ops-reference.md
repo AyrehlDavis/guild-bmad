@@ -141,55 +141,71 @@ And pressing Escape closes the dialog without navigating
 - Use consistent suffixes for states (`-default`, `-hover`, `-active`, `-disabled`, `-focus`)
 - Group by purpose, not by property
 
-## Jira Story Template
+## BMAD Story Template (Required Format)
+
+Every story Relay outputs MUST follow this exact structure:
 
 ```markdown
-## [EPIC-KEY] Story Title
-**As a** [persona/user type],
-**I want to** [action/capability],
-**So that** [benefit/outcome].
+# Story {E}.{S}: {Title}
 
-### Description
-[Context about the feature, design intent, and any relevant background.
-Link to design spec and Figma frames.]
+## Story
 
-### Design Assets
-- Figma: [frame URL]
-- Spec: [handoff spec link]
-- Flow: [Kai's flow reference]
-- Copy: [Echo's content reference]
+**As a** [persona],
+**I want to** [action],
+**So that** [outcome].
 
-### Acceptance Criteria
-- [ ] Given [context], When [action], Then [result]
-- [ ] Given [context], When [action], Then [result]
-- [ ] Given [error condition], When [trigger], Then [error handling]
+[2-3 sentence description]
 
-### States to Implement
-- [ ] Empty state
-- [ ] Loading state
-- [ ] Populated state
-- [ ] Error state
-- [ ] Disabled state (if applicable)
+## Acceptance Criteria
 
-### Responsive Requirements
-- [ ] Mobile (375px): [behavior]
-- [ ] Tablet (768px): [behavior]
-- [ ] Desktop (1440px): [behavior]
+1. **Given** [precondition]
+   **When** [action]
+   **Then** [result]
 
-### Accessibility Requirements
-- [ ] Keyboard navigable
-- [ ] Screen reader tested
-- [ ] Focus management implemented
-- [ ] ARIA attributes: [list]
+2. **Given** [precondition]
+   **When** [action]
+   **Then** [result]
 
-### Dependencies
-- Blocked by: [story keys]
-- Blocks: [story keys]
+## Tasks / Subtasks
 
-### Estimation
-- Points: [S/M/L/XL]
-- Notes: [complexity factors]
+- [ ] Task description (AC: 1)
+- [ ] Task description (AC: 1, 2)
+- [ ] Write/update tests
+- [ ] Manual QA verification
+
+## Dev Notes
+
+[Technical implementation guidance]
+
+### Project Structure Notes
+
+- New files: [paths]
+- Modified files: [paths]
+- Test files: [paths]
+
+### References
+
+- PRD: [path]
+- Architecture: [path]
+- PDX Artifacts: [paths]
+- Related Stories: [story IDs]
+
+## Dev Agent Record
+
+### Agent Model Used
+### Debug Log References
+### Completion Notes List
+### File List
 ```
+
+### Common Mistakes to Avoid
+| Wrong (PDX default) | Right (BMAD format) |
+|---------------------|---------------------|
+| `1. **AC1 — Schema Migration**: When...` | `1. **Given** existing schema **When** migration runs **Then** new tables created` |
+| `## Context` section with Priority/Points | Fold into `## Dev Notes` as inline text |
+| No Dev Agent Record | Always include with 4 empty subsections |
+| No Project Structure Notes | Always list new/modified/test file paths |
+| No References section | Always link PRD, architecture, PDX artifacts |
 
 ## Story Point Estimation Guide
 

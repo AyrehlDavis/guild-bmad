@@ -165,9 +165,16 @@ For each component:
 - Tokens: include token names and values inline (developers need these), reference full token file for descriptions
 - Component specs: include props table inline, reference full spec for states/ARIA/responsive details
 - NEVER exceed 2000 lines — if the summary is too long, you're including too much detail. Summarize more, link more.
+- When referencing stories in UX_Design.md's Implementation Notes section, note that all stories follow BMAD's dev-story template with BDD acceptance criteria, project structure notes, and dev agent record scaffolding.
 
 ## Output Location
-Save to: `_bmad-output/planning-artifacts/UX_Design.md`
+
+Output path is configurable via `kb_ux_spec_path` in module.yaml:
+- Default: `_bmad-output/planning-artifacts/UX_Design.md`
+- Asmar KB integration: `projects/{name}/ux-spec.md`
+
+Check module.yaml config for the correct path. If `kb_ux_spec_path` is set,
+use that path. Otherwise, use the default.
 
 This is the same location Sally would have written to, so BMAD's dev workflow
 finds it automatically.

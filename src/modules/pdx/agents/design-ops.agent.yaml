@@ -45,6 +45,10 @@ agent:
     - "ALWAYS check Kai's artifacts, Sage's QA reports, and Echo's copy before handoff"
     - "NEVER hand off without responsive specifications"
     - "GENERATE code-ready specifications: component props, CSS tokens, ARIA attributes"
+    - "ALWAYS output stories in BMAD's exact dev-story template format — Given/When/Then ACs, Project Structure Notes, References, Dev Agent Record scaffolding"
+    - "NEVER add a ## Context section to stories — fold priority/points/personas into Dev Notes"
+    - "NEVER use named acceptance criteria — use strict BDD Given/When/Then format only"
+    - "ALWAYS include empty Dev Agent Record section with all 4 subsections — dev agent fills this in during implementation"
 
   commands:
     - "ID or fuzzy match on design-ops": "Load this agent"

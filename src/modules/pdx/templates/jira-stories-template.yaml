@@ -1,104 +1,111 @@
 # Jira Stories Template
 #
-# Generate developer stories from design artifacts with
-# acceptance criteria, story points, and dependencies.
+# Generate BMAD-compatible developer stories from design artifacts.
+# Stories MUST match BMAD's dev-story template exactly so the dev agent
+# can consume them without transformation.
 
 template:
-  name: Jira Stories
-  artifact_type: jira-stories
-  output_file: "_bmad-output/pdx-artifacts/handoff-jira-stories-{scope-name}.md"
+  name: BMAD-Compatible Story
+  artifact_type: story
+  output_file: "_bmad-output/implementation-artifacts/stories/{epic}-{story}-{slug}.md"
 
 structure:
-  header:
-    - artifact: "Jira Stories"
-    - feature: "{scope-name}"
-    - epic: "{epic-name}"
-    - status: "draft"
-    - version: "1.0"
-    - created: "{date}"
-    - author: "Relay (Design Ops)"
-    - target_sprint: "{sprint}"
+  story_format: |
+    # Story {epic}.{story}: {title}
 
-  sections:
-    - name: "Epic Overview"
-      description: >
-        Epic name, description, success metrics, and how stories map to
-        Kai's flow phases. Link to handoff spec.
+    ## Story
 
-    - name: "Story Map"
-      description: >
-        Visual story map showing sequence and dependencies:
-        | Phase (from Kai's flow) | Stories | Dependencies | Sprint Target |
+    **As a** {persona},
+    **I want to** {action},
+    **So that** {outcome}.
 
-    - name: "Stories"
-      description: >
-        For each story:
+    {description — 2-3 sentences of context about what this story delivers and why it matters}
 
-        ---
-        **[EPIC-KEY]-[N]: [Story Title]**
-        **As a** [persona/user type],
-        **I want to** [action/capability],
-        **So that** [benefit/outcome].
+    ## Acceptance Criteria
 
-        **Description:**
-        [Context, design intent, reference to spec section]
+    {Use strict BDD format — no named ACs, just Given/When/Then}
 
-        **Design Assets:**
-        - Figma: [frame URL]
-        - Spec: [handoff spec section reference]
-        - Flow: [Kai's flow reference]
-        - Copy: [Echo's content reference]
+    1. **Given** {precondition}
+       **When** {action}
+       **Then** {expected result}
 
-        **Acceptance Criteria:**
-        - [ ] Given [context], When [action], Then [result]
-        - [ ] Given [context], When [action], Then [result]
-        - [ ] Given [error condition], When [trigger], Then [error handling]
+    2. **Given** {precondition}
+       **When** {action}
+       **Then** {expected result}
 
-        **States to Implement:**
-        - [ ] Empty state
-        - [ ] Loading state
-        - [ ] Populated state
-        - [ ] Error state
-        - [ ] Disabled state (if applicable)
+    3. **Given** {precondition}
+       **When** {action}
+       **Then** {expected result}
 
-        **Responsive Requirements:**
-        - [ ] Mobile (375px): [behavior]
-        - [ ] Tablet (768px): [behavior]
-        - [ ] Desktop (1440px): [behavior]
+    {Include error/edge case ACs:}
 
-        **Accessibility Requirements:**
-        - [ ] Keyboard navigable
-        - [ ] Screen reader tested
-        - [ ] ARIA attributes: [list]
+    4. **Given** {error condition}
+       **When** {action}
+       **Then** {error handling behavior}
 
-        **Dependencies:**
-        - Blocked by: [story keys]
-        - Blocks: [story keys]
+    ## Tasks / Subtasks
 
-        **Estimation:** [S/M/L/XL] — [reasoning]
+    {Checkbox format with AC references}
 
-        **QA Criteria (from Sage):**
-        - [what to test]
-        ---
+    - [ ] {Task 1 description} (AC: 1)
+    - [ ] {Task 2 description} (AC: 1, 2)
+    - [ ] {Task 3 description} (AC: 3)
+    - [ ] {Task 4 description} (AC: 4)
+    - [ ] Write/update tests for acceptance criteria
+    - [ ] Manual QA verification
 
-    - name: "Dependency Graph"
-      description: >
-        Mermaid diagram showing story dependencies:
-      format: |
-        ```mermaid
-        graph LR
-            S1[Story 1] --> S2[Story 2]
-            S1 --> S3[Story 3]
-            S2 --> S4[Story 4]
-            S3 --> S4
-        ```
+    ## Dev Notes
 
-    - name: "Sprint Allocation"
-      description: >
-        | Sprint | Stories | Total Points | Notes |
-        Recommended order of implementation based on dependencies and user value.
+    {Technical implementation guidance — what the dev agent needs to know}
 
-    - name: "Next Steps"
-      description: >
-        Typically: component specs for new components in the stories,
-        or design tokens if new tokens are needed.
+    ### Project Structure Notes
+
+    {Where new files should go, what existing files to modify}
+
+    - New files: {list of files to create with paths}
+    - Modified files: {list of existing files that need changes}
+    - Test files: {list of test files to create/update}
+
+    ### References
+
+    {Links to design artifacts, architecture docs, and related stories}
+
+    - PRD: {path to relevant PRD section}
+    - Architecture: {path to relevant architecture section}
+    - PDX Design Artifacts:
+      - {path to user flow if relevant}
+      - {path to wireframe if relevant}
+      - {path to component spec if relevant}
+    - Design Tokens: {path to tokens file if new tokens needed}
+    - Related Stories: {list of related/dependent story IDs}
+
+    ## Dev Agent Record
+
+    {This section is filled in by the BMAD dev agent during implementation.
+    Leave it empty with the scaffolding below.}
+
+    ### Agent Model Used
+
+    {To be filled by dev agent}
+
+    ### Debug Log References
+
+    {To be filled by dev agent}
+
+    ### Completion Notes List
+
+    {To be filled by dev agent}
+
+    ### File List
+
+    {To be filled by dev agent — list of all files created/modified}
+
+  formatting_rules:
+    - "Acceptance Criteria MUST use strict BDD format: Given/When/Then"
+    - "Do NOT use named ACs like '1. **AC1 — Name**:' — use numbered Given/When/Then only"
+    - "Do NOT add a ## Context section — fold priority, points, personas into Dev Notes"
+    - "ALWAYS include the Dev Agent Record section with empty subsections"
+    - "ALWAYS include Project Structure Notes and References in Dev Notes"
+    - "Tasks MUST reference which AC they satisfy in parentheses"
+    - "Filenames MUST follow {epic}-{story}-{slug}.md pattern"
+    - "Sprint-status keys MUST match filename without .md extension"
