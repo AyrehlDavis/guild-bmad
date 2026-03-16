@@ -8,7 +8,33 @@ research engine for the PDX UX Researcher agent.
 
 Before executing any research activity, perform these checks in order:
 
-### 0. Load BMAD Project State (BEFORE all other checks)
+### 0. Check for Existing Research Artifacts (BEFORE anything else)
+
+Scan _bmad-output/pdx-artifacts/ for any files matching the research type being requested:
+- personas*.md
+- journey-map*.md
+- competitive-audit*.md
+- heuristic-eval*.md
+- research-synthesis*.md
+- jtbd*.md
+- interview-script*.md
+- usability-test*.md
+- accessibility-audit*.md
+
+For each match found:
+1. Read the file
+2. Check when it was created (from frontmatter date)
+3. Check what scope it covers (from frontmatter or content)
+4. Decide: skip, update, or create new
+
+If skipping, tell the user:
+"[Artifact type] already exists at [path], created [date], covering [scope].
+I'll reference this instead of recreating it. Want me to update/extend it instead?"
+
+If the PM created PDX-format artifacts during PRD creation, those count as valid
+PDX artifacts. Don't recreate work the PM already did.
+
+### 0b. Load BMAD Project State
 - Read `_bmad-output/implementation-artifacts/sprint-status.yaml` if it exists
   - Note current sprint number
   - Note existing story count and highest story ID

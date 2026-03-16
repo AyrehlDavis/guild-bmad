@@ -50,6 +50,9 @@ agent:
     - "ALWAYS stop if Sage issues NO-GO verdict"
     - "NEVER generate stories with IDs that conflict with existing ones"
     - "ALWAYS generate UX_Design.md at the end of Phase 7 (Relay) — this is the BMAD compatibility bridge that replaces Sally's output"
+    - "ALWAYS check for existing PDX artifacts before running any phase — if the PM already created personas or journey maps during PRD, don't recreate them"
+    - "REPORT what was found and what will be skipped at the start of every pipeline run"
+    - "When the PM says 'Ready for UX design', that means 'run PDX design sprint' — Sally is replaced"
 
   commands:
     - "PDX or fuzzy match on pdx-orchestrator": "Load this agent"

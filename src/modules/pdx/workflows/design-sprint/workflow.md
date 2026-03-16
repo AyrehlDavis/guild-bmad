@@ -67,10 +67,34 @@ Create PRD from product brief:
 - Output: `prd.md` → `_bmad-output/planning-artifacts/`
 - Report: "Phase 1 complete — PRD created with [n] epics"
 
-### Phase 2: Nova (PDX Research)
-Generate foundational research from PRD. Nova auto-selects methods based on what the project needs:
+### Phase 2: Nova 🔍 — Research (Smart Skip)
 
-**Always run (greenfield foundation):**
+Before running any research, check what already exists:
+
+1. Check _bmad-output/pdx-artifacts/ for:
+   - personas*.md — If personas exist AND were created within this sprint cycle, SKIP persona generation. Reference existing.
+   - journey-map*.md — If journey maps exist AND cover the feature scope, SKIP journey mapping. Reference existing.
+   - competitive-audit*.md — If competitive audit exists AND is recent, SKIP. Reference existing.
+   - heuristic-eval*.md — If heuristic eval exists for this feature, SKIP. Reference existing.
+   - jtbd*.md — If JTBD mapping exists AND covers the feature scope, SKIP. Reference existing.
+
+2. Check _bmad-output/planning-artifacts/ for:
+   - prd*.md — Read for context (always)
+
+3. For each research method, Nova decides:
+   - EXISTS + CURRENT + COVERS SCOPE → Skip, reference existing artifact
+   - EXISTS + OUTDATED → Update/extend existing artifact, don't recreate
+   - EXISTS + DIFFERENT SCOPE → Run for the new scope, keep both
+   - DOESN'T EXIST → Run as normal
+
+4. Report to user:
+   "Found existing artifacts:
+   - ✅ [artifact] — will reference, not recreate
+   - 🔍 [artifact] — not found, will generate
+
+   Running [n] research methods, skipping [m] (already exist)."
+
+**Greenfield foundation (run if not already present):**
 - `/persona-gen` — generate personas from PRD user descriptions
 - `/competitive-audit` — competitive analysis of similar products
 - `/jtbd` — map core user jobs with functional, emotional, and social dimensions
@@ -87,11 +111,10 @@ Generate foundational research from PRD. Nova auto-selects methods based on what
 - `/empathy-map` — if user segments need deeper emotional analysis
 - `/ab-test` — if comparing design approaches quantitatively
 
-Nova selects automatically based on PRD content and scope. If unsure, Nova asks one question: "Do you want foundational research only, or should I go deeper?"
+If the PM already created personas and journey maps during PRD creation, those count as valid PDX artifacts — Nova skips redundant work and moves straight to what's missing.
 
-- Output: `personas.md`, `competitive-audit.md`, `jtbd.md` (minimum) → `_bmad-output/pdx-artifacts/`
-- Additional artifacts based on methods selected
-- Report: "Phase 2 complete — [n] research artifacts produced using [methods list]"
+- Output: new/updated artifacts → `_bmad-output/pdx-artifacts/`
+- Report: "Phase 2 complete — [n] research artifacts ([m] new, [k] referenced existing) using [methods list]"
 
 ### Phase 3: Kai (PDX Design)
 Create full product design from research:
@@ -178,10 +201,28 @@ Stories are ready for development:
 ## BROWNFIELD Pipeline (7 phases)
 For existing projects with sprint-status.yaml.
 
-### Phase 2: Nova (PDX Research)
-Targeted research on the feature scope. Nova auto-selects methods based on what's needed:
+### Phase 2: Nova 🔍 — Research (Smart Skip)
 
-**Always run (brownfield baseline):**
+Before running any research, check what already exists in _bmad-output/pdx-artifacts/:
+
+1. Scan for existing artifacts matching this feature scope:
+   - personas*.md, journey-map*.md, competitive-audit*.md, heuristic-eval*.md, jtbd*.md
+
+2. For each artifact found:
+   - EXISTS + CURRENT + COVERS SCOPE → Skip, reference existing
+   - EXISTS + OUTDATED → Update/extend, don't recreate
+   - EXISTS + DIFFERENT SCOPE → Run for new scope, keep both
+   - DOESN'T EXIST → Run as normal
+
+3. Report what was found and what will be skipped:
+   "Found existing artifacts from PM phase:
+   - ✅ Personas — will reference, not recreate
+   - ✅ Journey map — will reference, not recreate
+   - 🔍 No heuristic eval found — will run targeted eval on [scope]
+
+   Skipping to Kai with existing research as context."
+
+**Brownfield baseline (run if not already present):**
 - Reference existing personas — update if the feature introduces new user types
 - `/heuristic-eval` or `/journey-map` for the specific feature area
 
@@ -195,10 +236,10 @@ Targeted research on the feature scope. Nova auto-selects methods based on what'
 - `/jtbd` — existing JTBD likely covers this scope
 - `/stakeholder-interview` — only if new stakeholders are involved
 
-Nova selects automatically based on existing artifacts and feature scope.
+If the PM already created PDX-format artifacts during PRD creation, those are valid — Nova skips redundant work.
 
-- Output → `_bmad-output/pdx-artifacts/`
-- Report: "Phase 2 complete — [n] research artifacts produced using [methods list]"
+- Output: new/updated artifacts → `_bmad-output/pdx-artifacts/`
+- Report: "Phase 2 complete — [n] research artifacts ([m] new, [k] referenced existing) using [methods list]"
 
 ### Phase 3: Kai (PDX Design)
 Design solutions for the feature:
