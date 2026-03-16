@@ -27,3 +27,11 @@ module:
       prompt: "Accessibility standard (wcag-aa/wcag-aaa):"
       default: "wcag-aa"
       result: "{value}"
+    kb_output_path:
+      prompt: "KB artifact path (e.g., projects/auth-system/):"
+      default: "_bmad-output/pdx-artifacts/"
+      result: "{value}"
+    kb_ux_spec_path:
+      prompt: "UX spec output path:"
+      default: "_bmad-output/planning-artifacts/UX_Design.md"
+      result: "{value}"
