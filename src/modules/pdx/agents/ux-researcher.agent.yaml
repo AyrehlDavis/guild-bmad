@@ -58,79 +58,79 @@ agent:
   menu:
     - trigger: "HE or fuzzy match on heuristic-eval"
       description: "Conduct a heuristic evaluation using Nielsen's 10 usability heuristics"
-      target: "task run-research.md with heuristic-eval-template.yaml"
+      target: "task run-research.md with heuristic-eval-tmpl.yaml"
 
     - trigger: "CA or fuzzy match on competitive-audit"
       description: "Perform a competitive analysis of comparable products and patterns"
-      target: "task run-research.md with competitive-audit-template.yaml"
+      target: "task run-research.md with competitive-audit-tmpl.yaml"
 
     - trigger: "PG or fuzzy match on persona-gen"
       description: "Generate evidence-based user personas from research data"
-      target: "task run-research.md with persona-template.yaml"
+      target: "task run-research.md with persona-tmpl.yaml"
 
     - trigger: "JM or fuzzy match on journey-map"
       description: "Create a journey map with emotional arc and pain point analysis"
-      target: "task run-research.md with journey-map-template.yaml"
+      target: "task run-research.md with journey-map-tmpl.yaml"
 
     - trigger: "IS or fuzzy match on interview-script"
       description: "Generate a structured user interview script with probing questions"
-      target: "task run-research.md with interview-script-template.yaml"
+      target: "task run-research.md with interview-script-tmpl.yaml"
 
     - trigger: "RS or fuzzy match on research-synthesis"
       description: "Synthesize research data into themes, insights, and recommendations"
-      target: "task run-research.md with research-synthesis-template.yaml"
+      target: "task run-research.md with research-synthesis-tmpl.yaml"
 
     - trigger: "UT or fuzzy match on usability-test"
       description: "Create a usability test plan with task scenarios and success metrics"
-      target: "task run-research.md with usability-test-template.yaml"
+      target: "task run-research.md with usability-test-tmpl.yaml"
 
     - trigger: "AA or fuzzy match on accessibility-audit"
       description: "Conduct a WCAG 2.2 accessibility audit with remediation plan"
-      target: "task run-research.md with accessibility-audit-template.yaml"
+      target: "task run-research.md with accessibility-audit-tmpl.yaml"
 
     - trigger: "JT or fuzzy match on jtbd"
       description: "Map Jobs-to-be-Done with functional, emotional, and social dimensions"
-      target: "task run-research.md with jtbd-template.yaml"
+      target: "task run-research.md with jtbd-tmpl.yaml"
 
     - trigger: "CS or fuzzy match on card-sort"
       description: "Plan and analyze a card sorting or tree testing study"
-      target: "task run-research.md with card-sort-template.yaml"
+      target: "task run-research.md with card-sort-tmpl.yaml"
 
     - trigger: "AB or fuzzy match on ab-test"
       description: "Create an A/B test plan with hypothesis, variants, and metrics"
-      target: "task run-research.md with ab-test-template.yaml"
+      target: "task run-research.md with ab-test-tmpl.yaml"
 
     - trigger: "SV or fuzzy match on survey"
       description: "Design a user survey with validated question types"
-      target: "task run-research.md with survey-template.yaml"
+      target: "task run-research.md with survey-tmpl.yaml"
 
     - trigger: "SI or fuzzy match on stakeholder-interview"
       description: "Generate a stakeholder interview script for discovery"
-      target: "task run-research.md with stakeholder-interview-template.yaml"
+      target: "task run-research.md with stakeholder-interview-tmpl.yaml"
 
     - trigger: "WS or fuzzy match on workshop"
       description: "Facilitate a design workshop (design studio, crazy 8s, dot voting)"
-      target: "task run-research.md with workshop-template.yaml"
+      target: "task run-research.md with workshop-tmpl.yaml"
 
     - trigger: "AD or fuzzy match on affinity-diagram"
       description: "Run thematic analysis and affinity diagramming on raw data"
-      target: "task run-research.md with affinity-diagram-template.yaml"
+      target: "task run-research.md with affinity-diagram-tmpl.yaml"
 
     - trigger: "SB or fuzzy match on service-blueprint"
       description: "Create a service blueprint mapping frontstage and backstage"
-      target: "task run-research.md with service-blueprint-template.yaml"
+      target: "task run-research.md with service-blueprint-tmpl.yaml"
 
     - trigger: "EM or fuzzy match on empathy-map"
       description: "Generate empathy maps for user segments"
-      target: "task run-research.md with empathy-map-template.yaml"
+      target: "task run-research.md with empathy-map-tmpl.yaml"
 
     - trigger: "SM or fuzzy match on story-map"
       description: "Create a user story map organizing stories by user journey"
-      target: "task run-research.md with story-map-template.yaml"
+      target: "task run-research.md with story-map-tmpl.yaml"
 
     - trigger: "DS or fuzzy match on diary-study"
       description: "Plan a diary study for longitudinal user behavior research"
-      target: "task run-research.md with diary-study-template.yaml"
+      target: "task run-research.md with diary-study-tmpl.yaml"
 
     - trigger: "RM or fuzzy match on recommend-method"
       description: "Recommend the best research method for your question"

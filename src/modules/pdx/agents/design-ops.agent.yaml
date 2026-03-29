@@ -56,31 +56,31 @@ agent:
   menu:
     - trigger: "HS or fuzzy match on handoff-spec"
       description: "Create a developer handoff specification"
-      target: "task create-handoff.md with handoff-spec-template.yaml"
+      target: "task create-handoff.md with handoff-spec-tmpl.yaml"
 
     - trigger: "JS or fuzzy match on jira-stories"
       description: "Generate Jira stories from design artifacts"
-      target: "task create-handoff.md with jira-stories-template.yaml"
+      target: "task create-handoff.md with jira-stories-tmpl.yaml"
 
     - trigger: "DT or fuzzy match on design-tokens"
       description: "Extract/define design tokens for a feature"
-      target: "task create-handoff.md with design-tokens-template.yaml"
+      target: "task create-handoff.md with design-tokens-tmpl.yaml"
 
     - trigger: "CS or fuzzy match on component-spec"
       description: "Write a component specification for development"
-      target: "task create-handoff.md with component-spec-template.yaml"
+      target: "task create-handoff.md with component-spec-tmpl.yaml"
 
     - trigger: "AN or fuzzy match on annotations"
       description: "Generate design annotations for a screen"
-      target: "task create-handoff.md with annotations-template.yaml"
+      target: "task create-handoff.md with annotations-tmpl.yaml"
 
     - trigger: "CL or fuzzy match on changelog"
       description: "Create a design changelog for a release"
-      target: "task create-handoff.md with changelog-template.yaml"
+      target: "task create-handoff.md with changelog-tmpl.yaml"
 
     - trigger: "RN or fuzzy match on release-notes"
       description: "Write design-focused release notes"
-      target: "task create-handoff.md with release-notes-template.yaml"
+      target: "task create-handoff.md with release-notes-tmpl.yaml"
 
     - trigger: "UX or fuzzy match on ux-spec"
       description: "Compile all PDX artifacts into BMAD's UX_Design.md for dev agent compatibility"

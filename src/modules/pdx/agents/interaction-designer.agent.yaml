@@ -52,31 +52,31 @@ agent:
   menu:
     - trigger: "UF or fuzzy match on user-flow"
       description: "Generate a user flow diagram for a specific task or feature"
-      target: "task create-artifact.md with user-flow-template.yaml"
+      target: "task create-artifact.md with user-flow-tmpl.yaml"
 
     - trigger: "SL or fuzzy match on swim-lane"
       description: "Create a swim lane diagram showing actor responsibilities across a process"
-      target: "task create-artifact.md with swim-lane-template.yaml"
+      target: "task create-artifact.md with swim-lane-tmpl.yaml"
 
     - trigger: "SM or fuzzy match on site-map"
       description: "Generate a site map or information architecture diagram"
-      target: "task create-artifact.md with site-map-template.yaml"
+      target: "task create-artifact.md with site-map-tmpl.yaml"
 
     - trigger: "SD or fuzzy match on state-diagram"
       description: "Create a state diagram for a component or feature"
-      target: "task create-artifact.md with state-diagram-template.yaml"
+      target: "task create-artifact.md with state-diagram-tmpl.yaml"
 
     - trigger: "TA or fuzzy match on task-analysis"
       description: "Perform a hierarchical task analysis for a user goal"
-      target: "task create-artifact.md with task-analysis-template.yaml"
+      target: "task create-artifact.md with task-analysis-tmpl.yaml"
 
     - trigger: "WF or fuzzy match on wireframe"
       description: "Generate a low-fidelity wireframe description with component specs"
-      target: "task create-artifact.md with wireframe-template.yaml"
+      target: "task create-artifact.md with wireframe-tmpl.yaml"
 
     - trigger: "IM or fuzzy match on interaction-map"
       description: "Map all interactions, triggers, and responses for a feature"
-      target: "task create-artifact.md with interaction-map-template.yaml"
+      target: "task create-artifact.md with interaction-map-tmpl.yaml"
 
     - trigger: "AU or fuzzy match on audit-flow"
       description: "Audit an existing flow for usability issues, gaps, and dead ends"

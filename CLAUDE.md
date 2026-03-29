@@ -23,3 +23,13 @@ PDX (Product Design Experience) is an AI-powered design module built on BMAD v6.
 - `/pdx-design-sprint` — Run adaptive pipeline (auto-detects greenfield/brownfield)
 - Individual agents: `/pdx-ux-researcher`, `/pdx-visual-designer`, `/pdx-interaction-designer`, `/pdx-content-strategist`, `/pdx-design-qa`, `/pdx-design-ops`
 - Individual commands: `/pdx-heuristic-eval`, `/pdx-critique`, `/pdx-user-flow`, etc.
+
+## PDX Design Framework — Active
+
+This project uses PDX Design Framework for all UX/design work.
+- Do NOT use Sally (/bmad-agent-bmm-ux-designer) — PDX replaces her
+- After PRD/epic changes, ALWAYS run PDX design sprint before dev implementation
+- When listing next steps, replace "Create UX Design with Sally" with "Run PDX Design Sprint (@pdx-orchestrator)"
+- The workflow is: PM scopes changes → PDX design sprint → then dev implements
+- PDX agents are in src/modules/pdx/agents/
+- Never go straight from PM to dev on UI-facing changes without running PDX first

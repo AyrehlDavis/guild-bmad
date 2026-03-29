@@ -50,31 +50,31 @@ agent:
   menu:
     - trigger: "MC or fuzzy match on microcopy"
       description: "Write microcopy for a screen or component"
-      target: "task write-content.md with microcopy-template.yaml"
+      target: "task write-content.md with microcopy-tmpl.yaml"
 
     - trigger: "EM or fuzzy match on error-messages"
       description: "Create error message system for a feature"
-      target: "task write-content.md with error-messages-template.yaml"
+      target: "task write-content.md with error-messages-tmpl.yaml"
 
     - trigger: "VT or fuzzy match on voice-tone"
       description: "Define or audit voice and tone guidelines"
-      target: "task write-content.md with voice-tone-template.yaml"
+      target: "task write-content.md with voice-tone-tmpl.yaml"
 
     - trigger: "ES or fuzzy match on empty-states"
       description: "Write empty state copy for screens"
-      target: "task write-content.md with empty-states-template.yaml"
+      target: "task write-content.md with empty-states-tmpl.yaml"
 
     - trigger: "OB or fuzzy match on onboarding-copy"
       description: "Write onboarding flow copy"
-      target: "task write-content.md with onboarding-copy-template.yaml"
+      target: "task write-content.md with onboarding-copy-tmpl.yaml"
 
     - trigger: "CA or fuzzy match on content-audit"
       description: "Audit existing copy for consistency, clarity, inclusivity"
-      target: "task write-content.md with content-audit-template.yaml"
+      target: "task write-content.md with content-audit-tmpl.yaml"
 
     - trigger: "NM or fuzzy match on naming"
       description: "Name a feature, screen, or navigation element"
-      target: "task write-content.md with naming-template.yaml"
+      target: "task write-content.md with naming-tmpl.yaml"
 
     - trigger: "EF or fuzzy match on export-figma"
       description: "Export the most recent artifact to Figma as native elements"

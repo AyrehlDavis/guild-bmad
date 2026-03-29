@@ -178,11 +178,11 @@ src/modules/pdx/
 │   ├── export-to-figma.md               # Figma native export
 │   └── audit-flow.md                    # Flow audit
 ├── templates/                           # 37+ structured templates
-│   ├── user-flow-template.yaml
-│   ├── swim-lane-template.yaml
-│   ├── persona-template.yaml
-│   ├── heuristic-eval-template.yaml
-│   ├── journey-map-template.yaml
+│   ├── user-flow-tmpl.yaml
+│   ├── swim-lane-tmpl.yaml
+│   ├── persona-tmpl.yaml
+│   ├── heuristic-eval-tmpl.yaml
+│   ├── journey-map-tmpl.yaml
 │   ├── ... (and 30+ more)
 ├── workflows/
 │   └── design-sprint/
