@@ -1,6 +1,6 @@
 module:
   code: guild
-  name: Product Design Experience
+  name: Guild Design Framework
   version: 0.1.0
   description: >
     AI-powered product design framework with specialized agents for the full

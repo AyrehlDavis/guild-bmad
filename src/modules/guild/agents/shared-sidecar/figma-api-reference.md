@@ -1,4 +1,4 @@
-# Figma Plugin API Reference for PDX Agents
+# Figma Plugin API Reference for Guild .gents
 
 ## Node Creation
 
@@ -127,7 +127,7 @@ const BLUE    = { r: 0.231, g: 0.510, b: 0.965 }; // #3B82F6
 const YELLOW  = { r: 0.961, g: 0.620, b: 0.043 }; // #F59E0B
 const PURPLE  = { r: 0.435, g: 0.259, b: 0.757 }; // #6F42C1
 
-// PDX annotation colors (0-1 range)
+// Guild .nnotation colors (0-1 range)
 const ANNOTATION_BG    = { r: 1, g: 0.953, b: 0.804 };     // #FFF3CD
 const ERROR_BG         = { r: 0.973, g: 0.843, b: 0.855 };  // #F8D7DA
 const SUCCESS_BG       = { r: 0.831, g: 0.929, b: 0.855 };  // #D4EDDA
@@ -212,7 +212,7 @@ node.dashPattern = [4, 4];      // dashed line
 ```javascript
 // Paint style (reusable color)
 const style = figma.createPaintStyle();
-style.name = "PDX/Primary";
+style.name = "Guild/Primary";
 style.paints = [{ type: 'SOLID', color: { r: 0.231, g: 0.510, b: 0.965 } }];
 
 // Apply style
@@ -220,7 +220,7 @@ frame.fillStyleId = style.id;
 
 // Text style
 const textStyle = figma.createTextStyle();
-textStyle.name = "PDX/Heading 1";
+textStyle.name = "Guild/Heading 1";
 textStyle.fontSize = 32;
 textStyle.fontName = { family: "Inter", style: "Bold" };
 textStyle.lineHeight = { value: 40, unit: 'PIXELS' };
@@ -230,7 +230,7 @@ text.textStyleId = textStyle.id;
 
 // Effect style (shadows)
 const effectStyle = figma.createEffectStyle();
-effectStyle.name = "PDX/Shadow/Medium";
+effectStyle.name = "Guild/Shadow/Medium";
 effectStyle.effects = [{ type: 'DROP_SHADOW', color: { r: 0, g: 0, b: 0, a: 0.1 }, offset: { x: 0, y: 4 }, radius: 8, spread: 0, visible: true, blendMode: 'NORMAL' }];
 ```
 
@@ -281,7 +281,7 @@ const header = figma.currentPage.findOne(n => n.name === "Header");
 ## Node Naming Best Practices
 
 - Use clear, hierarchical names: "Card / Header / Title"
-- Prefix PDX-generated elements: "PDX — [context]"
+- Prefix Guild-generated elements: "Guild — [context]"
 - Use emoji for visual scanning in layers panel
 - Group related elements in named frames
 - Annotation naming: "Annotation — [Type] — [Target Element]"

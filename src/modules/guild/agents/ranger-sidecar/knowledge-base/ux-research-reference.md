@@ -181,7 +181,7 @@ For each recommendation, provide: method name and command, why it fits, time/eff
 ## New Method Reference
 
 ### Card Sorting (/card-sort)
-Studies how users categorize and organize information. Open sort (users create categories), closed sort (predefined categories), hybrid, or tree test (validate existing IA). Use 8-15 participants for qualitative, 30+ for statistical. Analyze with similarity matrices and dendrograms. Hands off to Kai for site map.
+Studies how users categorize and organize information. Open sort (users create categories), closed sort (predefined categories), hybrid, or tree test (validate existing IA). Use 8-15 participants for qualitative, 30+ for statistical. Analyze with similarity matrices and dendrograms. Hands off to Rogue for site map.
 
 ### A/B Testing (/ab-test)
 Structured experiment comparing two variants against a primary metric. Requires: hypothesis, sample size calculation, statistical significance threshold (p<0.05), and decision framework for all outcomes. Watch for novelty effect, peeking problem, and interaction effects.

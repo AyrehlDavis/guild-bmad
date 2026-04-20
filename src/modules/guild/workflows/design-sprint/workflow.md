@@ -1,10 +1,10 @@
-# PDX Design Sprint Workflow
+# Guild Design Sprint Workflow
 
 ## Trigger
 User invokes this workflow with a feature or improvement area:
 - "Run a design sprint on the packing screen"
 - "Design sprint: add social features"
-- "PDX sprint: improve onboarding"
+- "Guild sprint: improve onboarding"
 
 ## Step 0: Project Detection
 
@@ -17,15 +17,15 @@ Check for these files in order:
 
 **If sprint-status.yaml exists → BROWNFIELD**
 This is an active project with existing sprints. Reference existing artifacts, continue numbering.
-Pipeline: Nova → Kai → Lux → Echo → Sage → Relay → PM → SM (8 phases)
+Pipeline: Ranger → Rogue → Mage → Warlock → Sage → Healer → PM → SM (8 phases)
 
 **If prd.md exists but no sprint-status.yaml → MID-PROJECT**
 Planning happened but implementation hasn't started. Skip Analyst, include Architect.
-Pipeline: PM → Nova → Kai → Lux → Echo → Architect → Sage → Relay → PM → SM (10 phases)
+Pipeline: PM → Ranger → Rogue → Mage → Warlock → Architect → Sage → Healer → PM → SM (10 phases)
 
 **If nothing exists → GREENFIELD**
 Brand new project. Run full pipeline including Analyst, PM, and Architect.
-Pipeline: Analyst → PM → Nova → Kai → Lux → Echo → Architect → Sage → Relay → PM → SM (12 phases)
+Pipeline: Analyst → PM → Ranger → Rogue → Mage → Warlock → Architect → Sage → Healer → PM → SM (12 phases)
 
 Report detection to user:
 "Detected: [GREENFIELD/BROWNFIELD/MID-PROJECT]. Running [X]-phase pipeline."
@@ -39,13 +39,13 @@ Report detection to user:
 
 ## Core Rule: Artifact Source of Truth
 
-All PDX artifacts are standalone documents in _bmad-output/guild-artifacts/.
+All Guild artifacts are standalone documents in _bmad-output/guild-artifacts/.
 When the pipeline interacts with BMAD documents (PRD, architecture, sprint-status.yaml):
 - Guild agents write FULL artifacts to guild-artifacts/
-- BMAD agents receive SUMMARIES with references to PDX artifacts
-- If a PM or Architect asks for journey maps, personas, flows, etc. — generate the full PDX artifact AND provide a summary for their document
+- BMAD agents receive SUMMARIES with references to Guild artifacts
+- If a PM or Architect asks for journey maps, personas, flows, etc. — generate the full Guild artifact AND provide a summary for their document
 - This prevents duplication and ensures one source of truth
-- When PDX artifacts are updated, BMAD documents don't need to be rewritten — the references still point to the current version
+- When Guild artifacts are updated, BMAD documents don't need to be rewritten — the references still point to the current version
 
 ---
 
@@ -67,7 +67,7 @@ Create PRD from product brief:
 - Output: `prd.md` → `_bmad-output/planning-artifacts/`
 - Report: "Phase 1 complete — PRD created with [n] epics"
 
-### Phase 2: Nova 🔍 — Research (Smart Skip)
+### Phase 2: Ranger 🔍 — Research (Smart Skip)
 
 Before running any research, check what already exists:
 
@@ -81,7 +81,7 @@ Before running any research, check what already exists:
 2. Check _bmad-output/planning-artifacts/ for:
    - prd*.md — Read for context (always)
 
-3. For each research method, Nova decides:
+3. For each research method, Ranger decides:
    - EXISTS + CURRENT + COVERS SCOPE → Skip, reference existing artifact
    - EXISTS + OUTDATED → Update/extend existing artifact, don't recreate
    - EXISTS + DIFFERENT SCOPE → Run for the new scope, keep both
@@ -111,12 +111,12 @@ Before running any research, check what already exists:
 - `/empathy-map` — if user segments need deeper emotional analysis
 - `/ab-test` — if comparing design approaches quantitatively
 
-If the PM already created personas and journey maps during PRD creation, those count as valid PDX artifacts — Nova skips redundant work and moves straight to what's missing.
+If the PM already created personas and journey maps during PRD creation, those count as valid Guild artifacts — Ranger skips redundant work and moves straight to what's missing.
 
 - Output: new/updated artifacts → `_bmad-output/guild-artifacts/`
 - Report: "Phase 2 complete — [n] research artifacts ([m] new, [k] referenced existing) using [methods list]"
 
-### Phase 3: Kai (PDX Design)
+### Phase 3: Rogue (Guild .esign)
 Create full product design from research:
 - Site map / information architecture for full product
 - User flows for each epic
@@ -125,20 +125,20 @@ Create full product design from research:
 - Output: `site-map.md`, `user-flow-*.md`, `wireframe-*.md` → `_bmad-output/guild-artifacts/`
 - Report: "Phase 3 complete — [n] design artifacts produced"
 
-### Phase 4: Lux 🎨 — Visual Polish
+### Phase 4: Mage 🎨 — Visual Polish
 
-After Kai produces structural designs (flows, wireframes, state diagrams),
-the Visual Designer reviews and polishes the visual treatment before Echo
+After Rogue produces structural designs (flows, wireframes, state diagrams),
+the Visual Designer reviews and polishes the visual treatment before Warlock
 writes copy for the screens.
 
 The Visual Designer:
-1. Reads Kai's wireframes and flow artifacts
+1. Reads Rogue's wireframes and flow artifacts
 2. IF the app is running (simulator or localhost):
    - Auto-captures screens via Playwright/xcrun simctl
    - Runs visual critique using vision analysis
 3. IF working from wireframe specs only:
    - Reviews the wireframe descriptions for visual hierarchy issues
-4. For each screen/component in Kai's output:
+4. For each screen/component in Rogue's output:
    - Checks visual hierarchy (is the primary element clear?)
    - Checks spacing rhythm (on the 4/8/12/16/24/32/48 scale?)
    - Checks typography (max 3 sizes, clear weight hierarchy?)
@@ -146,7 +146,7 @@ The Visual Designer:
    - Checks visual noise (can anything be removed?)
 5. Outputs:
    - Visual polish recommendations with code fixes
-   - Updated style specs for Echo to reference when writing copy
+   - Updated style specs for Warlock to reference when writing copy
    - Spacing/typography/color refinements as design tokens if new
 6. Save to _bmad-output/guild-artifacts/visual-polish-[scope].md
 
@@ -162,7 +162,7 @@ This phase is SKIPPABLE if:
 - Output: `visual-polish-[scope].md` → `_bmad-output/guild-artifacts/`
 - Report: "Phase 4 complete — visual polish [applied/skipped/no issues found]"
 
-### Phase 5: Echo (PDX Content)
+### Phase 5: Warlock (Guild Content)
 Write all product content:
 - Voice and tone guidelines
 - All screen microcopy
@@ -174,24 +174,24 @@ Write all product content:
 
 ### Phase 6: Architect (BMAD)
 Create technical architecture:
-- System architecture based on PRD + PDX design artifacts
+- System architecture based on PRD + Guild design artifacts
 - Tech stack decisions informed by component specs
 - Data model, API design, infrastructure
 - Output: `architecture.md` → `_bmad-output/planning-artifacts/`
 - Report: "Phase 6 complete — architecture document created"
 
-### Phase 7: Sage (PDX QA)
+### Phase 7: Sage (Guild .A)
 Quality gate on all design work:
-- Design review on all Kai artifacts
+- Design review on all Rogue artifacts
 - Accessibility audit
-- Content QA on all Echo output
+- Content QA on all Warlock output
 - Pre-handoff quality gate
 - IF NO-GO → loop back to relevant phase with issues
 - IF GO/CONDITIONAL → continue
 - Output: `qa-report.md` → `_bmad-output/guild-artifacts/`
 - Report: "Phase 7 complete — verdict: [GO/CONDITIONAL/NO-GO]"
 
-### Phase 8: Relay (PDX Handoff)
+### Phase 8: Healer (Guild Handoff)
 Generate all implementation artifacts:
 - Generate epic and story files from design artifacts
 - Component specs for all new components
@@ -199,10 +199,10 @@ Generate all implementation artifacts:
 - Output: stories → `_bmad-output/implementation-artifacts/stories/`
 - Output: `component-specs.md`, `design-tokens.json` → `_bmad-output/guild-artifacts/`
 
-After generating stories, Relay also compiles all PDX artifacts into
+After generating stories, Healer also compiles all Guild artifacts into
 `_bmad-output/planning-artifacts/UX_Design.md` for BMAD dev agent compatibility.
 This ensures the dev agent has a consolidated UX spec in the format it expects,
-replacing Sally's output with PDX's richer pipeline output. Run task
+replacing Sally's output with Guild's richer pipeline output. Run task
 `export-ux-design.md` automatically — no separate command needed.
 
 - Report: "Phase 8 complete — [n] stories generated ([story range]), UX_Design.md compiled"
@@ -238,7 +238,7 @@ Stories are ready for development:
 ## BROWNFIELD Pipeline (8 phases)
 For existing projects with sprint-status.yaml.
 
-### Phase 2: Nova 🔍 — Research (Smart Skip)
+### Phase 2: Ranger 🔍 — Research (Smart Skip)
 
 Before running any research, check what already exists in _bmad-output/guild-artifacts/:
 
@@ -257,7 +257,7 @@ Before running any research, check what already exists in _bmad-output/guild-art
    - ✅ Journey map — will reference, not recreate
    - 🔍 No heuristic eval found — will run targeted eval on [scope]
 
-   Skipping to Kai with existing research as context."
+   Skipping to Rogue with existing research as context."
 
 **Brownfield baseline (run if not already present):**
 - Reference existing personas — update if the feature introduces new user types
@@ -273,12 +273,12 @@ Before running any research, check what already exists in _bmad-output/guild-art
 - `/jtbd` — existing JTBD likely covers this scope
 - `/stakeholder-interview` — only if new stakeholders are involved
 
-If the PM already created PDX-format artifacts during PRD creation, those are valid — Nova skips redundant work.
+If the PM already created Guild-format artifacts during PRD creation, those are valid — Ranger skips redundant work.
 
 - Output: new/updated artifacts → `_bmad-output/guild-artifacts/`
 - Report: "Phase 2 complete — [n] research artifacts ([m] new, [k] referenced existing) using [methods list]"
 
-### Phase 3: Kai (PDX Design)
+### Phase 3: Rogue (Guild .esign)
 Design solutions for the feature:
 - User flows for the specific feature
 - State diagrams for complex components
@@ -286,14 +286,14 @@ Design solutions for the feature:
 - Output → `_bmad-output/guild-artifacts/`
 - Report: "Phase 3 complete — [n] design artifacts produced"
 
-### Phase 4: Lux 🎨 — Visual Polish
-Same as greenfield Phase 4. Reviews Kai's brownfield designs for visual quality.
+### Phase 4: Mage 🎨 — Visual Polish
+Same as greenfield Phase 4. Reviews Rogue's brownfield designs for visual quality.
 Skippable with --skip-visual flag.
 
 - Output: `visual-polish-[scope].md` → `_bmad-output/guild-artifacts/`
 - Report: "Phase 4 complete — visual polish [applied/skipped/no issues found]"
 
-### Phase 5: Echo (PDX Content)
+### Phase 5: Warlock (Guild Content)
 Content for new/changed screens:
 - Microcopy for new screens
 - Error messages for new error states
@@ -301,15 +301,15 @@ Content for new/changed screens:
 - Output → `_bmad-output/guild-artifacts/`
 - Report: "Phase 5 complete — [n] content artifacts produced"
 
-### Phase 6: Sage (PDX QA)
+### Phase 6: Sage (Guild .A)
 Focused QA on new designs:
 - Design review on new designs only
 - Accessibility check on new/changed screens
-- IF NO-GO → loop back to Kai
+- IF NO-GO → loop back to Rogue
 - Output → `_bmad-output/guild-artifacts/`
 - Report: "Phase 6 complete — verdict: [GO/CONDITIONAL/NO-GO]"
 
-### Phase 7: Relay (PDX Handoff)
+### Phase 7: Healer (Guild Handoff)
 Handoff continuing from existing state:
 - Stories continue from existing numbering
 - Append to existing epics or create new ones
@@ -317,7 +317,7 @@ Handoff continuing from existing state:
 - Tokens added to existing token file
 - Output: stories → `_bmad-output/implementation-artifacts/stories/`
 
-After generating stories, Relay also updates
+After generating stories, Healer also updates
 `_bmad-output/planning-artifacts/UX_Design.md` with the new/changed sections.
 If UX_Design.md doesn't exist yet, generate it fresh. If it exists, update
 only the sections affected by this sprint's design work.
@@ -342,13 +342,13 @@ Review existing PRD (validate, don't recreate):
 - Output: updated `prd.md` if changes needed
 - Report: "Phase 1 complete — PRD validated"
 
-### Phases 2-5: Nova → Kai → Lux → Echo
+### Phases 2-5: Ranger → Rogue → Mage → Warlock
 Same as greenfield Phases 2-5.
 
 ### Phase 6: Architect (BMAD)
 Same as greenfield Phase 6.
 
-### Phases 7-10: Sage → Relay → PM → SM
+### Phases 7-10: Sage → Healer → PM → SM
 Same as greenfield Phases 7-10.
 
 ---
@@ -356,10 +356,10 @@ Same as greenfield Phases 7-10.
 ## Post-Pipeline Report
 After all phases complete, output a summary:
 ```
-PDX Design Sprint Complete — [Feature/Scope]
+Guild Design Sprint Complete — [Feature/Scope]
 
 Detected: [GREENFIELD/BROWNFIELD/MID-PROJECT]
-Pipeline: Nova → Kai → Lux → Echo → Sage → Relay → PM → SM
+Pipeline: Ranger → Rogue → Mage → Warlock → Sage → Healer → PM → SM
 
 Artifacts produced: [count]
 Research: [list]
@@ -385,13 +385,13 @@ Ready for: @dev to pick up [first story ID] with /ds
 - If PM flags stories as fundamentally misaligned, pause for user confirmation before continuing
 
 ## Quick Sprint Variant
-Skip research phase. Runs: Kai → Lux → Echo → Sage → Relay → PM → SM.
+Skip research phase. Runs: Rogue → Mage → Warlock → Sage → Healer → PM → SM.
 Triggered by `/quick-sprint`.
 
 ## Research Only Variant
-Run only Nova. Save findings for later pipeline execution.
+Run only Ranger. Save findings for later pipeline execution.
 Triggered by `/research-only`.
 
 ## Handoff Only Variant
-Run Relay → PM → SM against existing guild-artifacts/.
+Run Healer → PM → SM against existing guild-artifacts/.
 Triggered by `/handoff-only`.

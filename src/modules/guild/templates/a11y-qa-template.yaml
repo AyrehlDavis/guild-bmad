@@ -1,6 +1,6 @@
 # Accessibility QA Template
 #
-# Quick accessibility QA pass — lighter than Nova's full WCAG audit.
+# Quick accessibility QA pass — lighter than Ranger's full WCAG audit.
 # Covers the highest-impact accessibility checks.
 
 template:
@@ -86,9 +86,9 @@ structure:
 
     - name: "Recommendation"
       description: >
-        If issues found, note whether a full WCAG audit from Nova (/accessibility-audit)
+        If issues found, note whether a full WCAG audit from Ranger (/accessibility-audit)
         is recommended. This quick check covers ~60% of common issues.
 
     - name: "Next Steps"
       description: >
-        Fix issues, then proceed to pre-handoff check or request Nova's full audit.
+        Fix issues, then proceed to pre-handoff check or request Ranger's full audit.

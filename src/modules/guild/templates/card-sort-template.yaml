@@ -15,7 +15,7 @@ structure:
     - status: "draft"
     - version: "1.0"
     - created: "{date}"
-    - author: "Nova (UX Researcher)"
+    - author: "Ranger (UX Researcher)"
     - confidence: "{high|medium|low}"
     - study_type: "{open-sort|closed-sort|hybrid|tree-test}"
 
@@ -190,7 +190,7 @@ structure:
     - name: "Next Steps"
       required: true
       description: >
-        - Hand recommended IA structure to Kai for site map creation
+        - Hand recommended IA structure to Rogue for site map creation
         - Validate with tree test if this was a card sort (or vice versa)
         - Cross-reference with analytics (top tasks, search logs)
         - Conduct usability testing on navigation built from this IA

@@ -72,7 +72,7 @@ structure:
 
     - PRD: {path to relevant PRD section}
     - Architecture: {path to relevant architecture section}
-    - PDX Design Artifacts:
+    - Guild .esign Artifacts:
       - {path to user flow if relevant}
       - {path to wireframe if relevant}
       - {path to component spec if relevant}

@@ -143,7 +143,7 @@ And pressing Escape closes the dialog without navigating
 
 ## BMAD Story Template (Required Format)
 
-Every story Relay outputs MUST follow this exact structure:
+Every story Healer outputs MUST follow this exact structure:
 
 ```markdown
 # Story {E}.{S}: {Title}
@@ -187,7 +187,7 @@ Every story Relay outputs MUST follow this exact structure:
 
 - PRD: [path]
 - Architecture: [path]
-- PDX Artifacts: [paths]
+- Guild .rtifacts: [paths]
 - Related Stories: [story IDs]
 
 ## Dev Agent Record
@@ -199,13 +199,13 @@ Every story Relay outputs MUST follow this exact structure:
 ```
 
 ### Common Mistakes to Avoid
-| Wrong (PDX default) | Right (BMAD format) |
+| Wrong (Guild .efault) | Right (BMAD format) |
 |---------------------|---------------------|
 | `1. **AC1 — Schema Migration**: When...` | `1. **Given** existing schema **When** migration runs **Then** new tables created` |
 | `## Context` section with Priority/Points | Fold into `## Dev Notes` as inline text |
 | No Dev Agent Record | Always include with 4 empty subsections |
 | No Project Structure Notes | Always list new/modified/test file paths |
-| No References section | Always link PRD, architecture, PDX artifacts |
+| No References section | Always link PRD, architecture, Guild artifacts |
 
 ## Story Point Estimation Guide
 

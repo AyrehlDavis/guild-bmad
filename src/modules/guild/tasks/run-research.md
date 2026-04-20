@@ -2,7 +2,7 @@
 
 ## Purpose
 Execute a structured UX research activity using the specified template. This task is the core
-research engine for the PDX UX Researcher agent.
+research engine for the Guild UX Researcher agent.
 
 ## Pre-flight Checks
 
@@ -31,8 +31,8 @@ If skipping, tell the user:
 "[Artifact type] already exists at [path], created [date], covering [scope].
 I'll reference this instead of recreating it. Want me to update/extend it instead?"
 
-If the PM created PDX-format artifacts during PRD creation, those count as valid
-PDX artifacts. Don't recreate work the PM already did.
+If the PM created Guild-format artifacts during PRD creation, those count as valid
+Guild artifacts. Don't recreate work the PM already did.
 
 ### 0b. Load BMAD Project State
 - Read `_bmad-output/implementation-artifacts/sprint-status.yaml` if it exists
@@ -50,12 +50,12 @@ PDX artifacts. Don't recreate work the PM already did.
   - Use the same naming conventions the project uses
 
 ### Artifact Source of Truth Rule
-PDX artifacts in _bmad-output/guild-artifacts/ are ALWAYS the source of truth.
+Guild artifacts in _bmad-output/guild-artifacts/ are ALWAYS the source of truth.
 When BMAD documents (PRD, architecture, UX_Design.md) need design content:
-- Write the FULL artifact to _bmad-output/guild-artifacts/ using PDX templates
+- Write the FULL artifact to _bmad-output/guild-artifacts/ using Guild templates
 - Write a SUMMARY in the BMAD document with key findings inline
 - REFERENCE the full artifact: "See full details: _bmad-output/guild-artifacts/[filename].md"
-- NEVER duplicate the full PDX artifact content inside a BMAD document
+- NEVER duplicate the full Guild artifact content inside a BMAD document
 - The summary should be enough for a PM to understand; the full artifact is for designers and developers
 
 ### 1. Load Project Context
@@ -107,7 +107,7 @@ artifact: [research type]
 status: draft
 version: 1.0
 created: [date]
-author: Nova (UX Researcher)
+author: Ranger (UX Researcher)
 confidence: [high|medium|low]
 confidence_rationale: "[explain basis for confidence rating]"
 references:

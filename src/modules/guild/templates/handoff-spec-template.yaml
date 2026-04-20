@@ -15,7 +15,7 @@ structure:
     - status: "draft"
     - version: "1.0"
     - created: "{date}"
-    - author: "Relay (Design Ops)"
+    - author: "Healer (Design Ops)"
     - target_sprint: "{sprint}"
     - engineering_framework: "{React|React Native|Vue|etc.}"
 
@@ -23,17 +23,17 @@ structure:
     - name: "Overview"
       description: >
         What is this feature, what does it do, and who is it for.
-        Link to PRD, user flows (Kai), research (Nova), QA report (Sage).
+        Link to PRD, user flows (Rogue), research (Ranger), QA report (Sage).
 
     - name: "Source Artifacts"
       description: >
         | Artifact | Author | Path | Status |
-        | User flow | Kai | | |
-        | Wireframe | Kai | | |
-        | Personas | Nova | | |
-        | Research | Nova | | |
+        | User flow | Rogue | | |
+        | Wireframe | Rogue | | |
+        | Personas | Ranger | | |
+        | Research | Ranger | | |
         | QA report | Sage | | |
-        | Copy | Echo | | |
+        | Copy | Warlock | | |
         | Figma frame | — | [URL] | |
 
     - name: "Screen-by-Screen Spec"
@@ -58,7 +58,7 @@ structure:
 
         **Empty State**
         - Visual: [description]
-        - Copy: [from Echo] headline, description, CTA
+        - Copy: [from Warlock] headline, description, CTA
         - Behavior: [what user can do]
 
         **Loading State**
@@ -68,7 +68,7 @@ structure:
 
         **Error State**
         - Visual: [description]
-        - Copy: [from Echo] error message, recovery action
+        - Copy: [from Warlock] error message, recovery action
         - Behavior: [retry, dismiss, redirect]
 
         **Populated State**
@@ -96,7 +96,7 @@ structure:
 
     - name: "Edge Cases"
       description: >
-        From Kai's flows and Sage's QA:
+        From Rogue's flows and Sage's QA:
         | Edge Case | Scenario | Expected Behavior | Fallback |
 
     - name: "Known Constraints"

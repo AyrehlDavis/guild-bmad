@@ -15,7 +15,7 @@ structure:
     - status: "draft"
     - version: "1.0"
     - created: "{date}"
-    - author: "Relay (Design Ops)"
+    - author: "Healer (Design Ops)"
 
   sections:
     - name: "Screen Overview"
@@ -61,7 +61,7 @@ structure:
 
     - name: "Content Annotations"
       description: >
-        | # | Element | Copy | Source (Echo) | Max Length | Truncation |
+        | # | Element | Copy | Source ( Warlock) | Max Length | Truncation |
         Document final copy with character limits and overflow behavior.
 
     - name: "Next Steps"

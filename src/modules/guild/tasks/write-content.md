@@ -2,7 +2,7 @@
 
 ## Purpose
 Create structured UX content using the specified template. This task is the core
-content engine for the PDX Content Strategist agent.
+content engine for the Guild Content Strategist agent.
 
 ## Pre-flight Checks
 
@@ -24,12 +24,12 @@ Before writing any content, perform these checks in order:
   - Use the same naming conventions the project uses
 
 ### Artifact Source of Truth Rule
-PDX artifacts in _bmad-output/guild-artifacts/ are ALWAYS the source of truth.
+Guild artifacts in _bmad-output/guild-artifacts/ are ALWAYS the source of truth.
 When BMAD documents (PRD, architecture, UX_Design.md) need design content:
-- Write the FULL artifact to _bmad-output/guild-artifacts/ using PDX templates
+- Write the FULL artifact to _bmad-output/guild-artifacts/ using Guild templates
 - Write a SUMMARY in the BMAD document with key findings inline
 - REFERENCE the full artifact: "See full details: _bmad-output/guild-artifacts/[filename].md"
-- NEVER duplicate the full PDX artifact content inside a BMAD document
+- NEVER duplicate the full Guild artifact content inside a BMAD document
 - The summary should be enough for a PM to understand; the full artifact is for designers and developers
 
 ### 1. Load Project Context
@@ -37,8 +37,8 @@ When BMAD documents (PRD, architecture, UX_Design.md) need design content:
 - Read `_bmad-output/planning-artifacts/prd.md` if it exists
 - Read `_bmad-output/guild-artifacts/personas.md` if it exists
 - Read any voice and tone guidelines in `_bmad-output/guild-artifacts/`
-- Read any existing wireframes or flows from Kai in `_bmad-output/guild-artifacts/`
-- Read any existing research from Nova in `_bmad-output/guild-artifacts/`
+- Read any existing wireframes or flows from Rogue in `_bmad-output/guild-artifacts/`
+- Read any existing research from Ranger in `_bmad-output/guild-artifacts/`
 
 ### 2. Gather Content Parameters from User
 Ask the user for the following (skip any already provided):
@@ -85,7 +85,7 @@ artifact: [content type]
 status: draft
 version: 1.0
 created: [date]
-author: Echo (Content Strategist)
+author: Warlock (Content Strategist)
 reading_level: "[grade level]"
 voice_tone: "[voice attributes applied]"
 references:

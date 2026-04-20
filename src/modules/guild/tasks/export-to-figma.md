@@ -1,7 +1,7 @@
 # Export to Figma
 
 ## Purpose
-Push PDX design artifacts directly into Figma as native, editable elements — not screenshots.
+Push Guild design artifacts directly into Figma as native, editable elements — not screenshots.
 Uses Figma's Plugin API via Playwright to create real frames, text layers, auto-layout,
 components, and styles.
 
@@ -23,12 +23,12 @@ components, and styles.
   - Use the same naming conventions the project uses
 
 ### Artifact Source of Truth Rule
-PDX artifacts in _bmad-output/guild-artifacts/ are ALWAYS the source of truth.
+Guild artifacts in _bmad-output/guild-artifacts/ are ALWAYS the source of truth.
 When BMAD documents (PRD, architecture, UX_Design.md) need design content:
-- Write the FULL artifact to _bmad-output/guild-artifacts/ using PDX templates
+- Write the FULL artifact to _bmad-output/guild-artifacts/ using Guild templates
 - Write a SUMMARY in the BMAD document with key findings inline
 - REFERENCE the full artifact: "See full details: _bmad-output/guild-artifacts/[filename].md"
-- NEVER duplicate the full PDX artifact content inside a BMAD document
+- NEVER duplicate the full Guild artifact content inside a BMAD document
 - The summary should be enough for a PM to understand; the full artifact is for designers and developers
 
 ### 1. Prerequisites Check
@@ -41,7 +41,7 @@ If any prerequisite fails, tell the user what's missing and how to fix it.
 
 ## Execution Modes
 
-### Mode: Relay Handoff Spec → Figma
+### Mode: Healer Handoff Spec → Figma
 Creates an annotated handoff frame in Figma with:
 - Screen frame with proper dimensions (375x812 for mobile, 1440x900 for desktop)
 - Component annotations as sticky-note-style frames positioned next to elements
@@ -72,7 +72,7 @@ Figma structure:
     └── API Requirements
 ```
 
-### Mode: Kai Flow → Figma
+### Mode: Rogue Flow → Figma
 Creates a visual flow diagram in Figma with:
 - Rounded rectangle nodes for start/end (green/red fills)
 - Rectangle nodes for actions (white fill, dark border)
@@ -89,7 +89,7 @@ Overlays QA findings on existing Figma frames:
 - Issue description in sticky-note frames
 - Checkmark overlays on passing elements
 
-### Mode: Echo Copy → Figma
+### Mode: Warlock Copy → Figma
 Updates text layers in existing Figma frames:
 - Finds text layers by name or content match
 - Updates with approved copy
@@ -108,7 +108,7 @@ await page.evaluate(async () => {
 
   // Create a frame with auto-layout
   const frame = figma.createFrame();
-  frame.name = "PDX — [Artifact Name]";
+  frame.name = "Guild — [Artifact Name]";
   frame.layoutMode = 'VERTICAL';
   frame.primaryAxisSizingMode = 'AUTO';
   frame.counterAxisSizingMode = 'FIXED';
@@ -157,10 +157,10 @@ await page.evaluate(async () => {
 });
 ```
 
-## Color Palette for PDX Figma Elements
+## Color Palette for Guild .igma Elements
 
-Use consistent colors across all PDX-generated Figma elements:
-- PDX Frame background: #FFFFFF (white)
+Use consistent colors across all Guild-generated Figma elements:
+- Guild .rame background: #FFFFFF (white)
 - Annotation background: #FFF3CD (warm yellow)
 - Error/P0 annotations: #F8D7DA (light red)
 - Success indicators: #D4EDDA (light green)
@@ -180,8 +180,8 @@ await figma.loadFontAsync({ family: "Inter", style: "Bold" });
 ```
 
 ## Naming Convention
-All PDX-created elements use this naming pattern:
-- Top-level: "PDX — [Agent] — [Artifact Type] — [Feature Name]"
+All Guild-created elements use this naming pattern:
+- Top-level: "Guild — [Agent] — [Artifact Type] — [Feature Name]"
 - Sections: "[Section Type] — [Label]"
 - Annotations: "Annotation — [Type] — [Target]"
 

@@ -15,7 +15,7 @@ structure:
     - status: "draft"
     - version: "1.0"
     - created: "{date}"
-    - author: "Relay (Design Ops)"
+    - author: "Healer (Design Ops)"
     - engineering_framework: "{React|React Native|Vue|etc.}"
 
   sections:

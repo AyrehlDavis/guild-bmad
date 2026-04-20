@@ -58,7 +58,7 @@ agent:
     - "ALWAYS include WCAG AA compliance check in every review"
     - "ALWAYS save QA reports to _bmad-output/guild-artifacts/ for traceability"
     - "NEVER approve without checking all states: empty, loading, error, populated, disabled"
-    - "CHECK existing heuristic evals and accessibility audits from Nova before running QA"
+    - "CHECK existing heuristic evals and accessibility audits from Ranger before running QA"
     - "ALWAYS scan actual source files, not just design artifacts — hardcoded values hide in code, not mockups"
     - "ALWAYS flag every hardcoded hex color, pixel value, and magic number with file path and line number"
     - "ALWAYS check that components use the project's established styling approach consistently"
@@ -82,7 +82,7 @@ agent:
       target: "task run-qa.md with responsive-check-template.yaml"
 
     - trigger: "AQ or fuzzy match on a11y-qa"
-      description: "Quick accessibility QA pass (lighter than Nova's full audit)"
+      description: "Quick accessibility QA pass (lighter than Ranger's full audit)"
       target: "task run-qa.md with a11y-qa-template.yaml"
 
     - trigger: "IC or fuzzy match on implementation-check"

@@ -1,5 +1,5 @@
 name: guild-design-sprint
-description: "Adaptive PDX pipeline — auto-detects greenfield/brownfield/mid-project and routes accordingly"
+description: "Adaptive Guild pipeline — auto-detects greenfield/brownfield/mid-project and routes accordingly"
 module: guild
 trigger: "DS or fuzzy match on design-sprint"
 detection:
@@ -31,17 +31,17 @@ outputs:
 pipelines:
   greenfield:
     phases: 11
-    sequence: "Analyst → PM → Nova → Kai → Echo → Architect → Sage → Relay → PM → SM → Dev"
+    sequence: "Analyst → PM → Ranger → Rogue → Warlock → Architect → Sage → Healer → PM → SM → Dev"
   brownfield:
     phases: 7
-    sequence: "Nova → Kai → Echo → Sage → Relay → PM → SM"
+    sequence: "Ranger → Rogue → Warlock → Sage → Healer → PM → SM"
   mid_project:
     phases: 9
-    sequence: "PM → Nova → Kai → Echo → Architect → Sage → Relay → PM → SM"
+    sequence: "PM → Ranger → Rogue → Warlock → Architect → Sage → Healer → PM → SM"
 variants:
   - name: quick-sprint
     trigger: "QS or fuzzy match on quick-sprint"
-    description: "Skip research — Kai → Echo → Sage → Relay → PM → SM"
+    description: "Skip research — Rogue → Warlock → Sage → Healer → PM → SM"
     guild_agents_required:
       - interaction-designer
       - content-strategist
@@ -50,12 +50,12 @@ variants:
     bmad_agents_required: [pm, sm]
   - name: research-only
     trigger: "RO or fuzzy match on research-only"
-    description: "Research only — run Nova, save findings for later"
+    description: "Research only — run Ranger, save findings for later"
     guild_agents_required:
       - ux-researcher
   - name: handoff-only
     trigger: "HO or fuzzy match on handoff-only"
-    description: "Handoff + PM review + SM sprint planning from existing PDX artifacts"
+    description: "Handoff + PM review + SM sprint planning from existing Guild artifacts"
     guild_agents_required:
       - design-ops
     bmad_agents_required: [pm, sm]

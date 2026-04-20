@@ -14,7 +14,7 @@ structure:
     - status: "draft"
     - version: "1.0"
     - created: "{date}"
-    - author: "Kai (Interaction Designer)"
+    - author: "Rogue (Interaction Designer)"
 
   sections:
     - name: "Overview"

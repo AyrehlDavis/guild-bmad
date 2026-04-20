@@ -1,12 +1,12 @@
 # Export UX Design Specification (BMAD Compatibility)
 
 ## Purpose
-Compile PDX artifacts into BMAD's expected UX_Design.md format so the dev
+Compile Guild artifacts into BMAD's expected UX_Design.md format so the dev
 agent receives everything it needs in the file format it expects. This replaces
-Sally's output with a richer, PDX-generated version.
+Sally's output with a richer, Guild-generated version.
 
 ## When to Use
-- After a design sprint completes (all PDX phases done)
+- After a design sprint completes (all Guild phases done)
 - Before kicking off BMAD dev stories
 - When the dev agent or architect needs a consolidated UX spec
 
@@ -23,15 +23,15 @@ Sally's output with a richer, PDX-generated version.
   - IF sprint-status.yaml does NOT exist → this is GREENFIELD. Start fresh but use BMAD-compatible formats.
 
 ### Artifact Source of Truth Rule
-PDX artifacts in _bmad-output/guild-artifacts/ are ALWAYS the source of truth.
+Guild artifacts in _bmad-output/guild-artifacts/ are ALWAYS the source of truth.
 When BMAD documents (PRD, architecture, UX_Design.md) need design content:
-- Write the FULL artifact to _bmad-output/guild-artifacts/ using PDX templates
+- Write the FULL artifact to _bmad-output/guild-artifacts/ using Guild templates
 - Write a SUMMARY in the BMAD document with key findings inline
 - REFERENCE the full artifact: "See full details: _bmad-output/guild-artifacts/[filename].md"
-- NEVER duplicate the full PDX artifact content inside a BMAD document
+- NEVER duplicate the full Guild artifact content inside a BMAD document
 - The summary should be enough for a PM to understand; the full artifact is for designers and developers
 
-### Read all PDX artifacts from _bmad-output/guild-artifacts/:
+### Read all Guild artifacts from _bmad-output/guild-artifacts/:
 - personas.md
 - journey-map-*.md
 - user-flow-*.md
@@ -54,8 +54,8 @@ Generate `_bmad-output/planning-artifacts/UX_Design.md` with this structure:
 ```markdown
 ---
 artifact: UX Design Specification
-generated_by: PDX Design Framework
-agents: [Nova, Kai, Echo, Sage, Relay, Lux]
+generated_by: Guild Design Framework
+agents: [Ranger, Rogue, Warlock, Sage, Healer, Mage]
 status: approved
 version: 1.0
 created: [date]
@@ -68,22 +68,22 @@ qa_verdict: [GO/CONDITIONAL/NO-GO from Sage]
 [One paragraph summary of the design direction, key decisions, and scope]
 
 ## 2. User Personas
-[Compiled from Nova's personas.md — summary table + key details]
+[Compiled from Ranger's personas.md — summary table + key details]
 [Include: name, archetype, primary goal, device, accessibility needs]
 
 ## 3. User Journeys
-[Compiled from Nova's journey maps — key phases and pain points]
+[Compiled from Ranger's journey maps — key phases and pain points]
 [Include emotional arc highlights and moments of truth]
 
 ## 4. Information Architecture
-[From Kai's site-map — navigation structure, page hierarchy]
+[From Rogue's site-map — navigation structure, page hierarchy]
 
 ## 5. User Flows
-[From Kai's user-flow files — Mermaid diagrams for each key flow]
+[From Rogue's user-flow files — Mermaid diagrams for each key flow]
 [Include: entry points, exit points, decision points, error paths]
 
 ## 6. Screen Specifications
-[From Kai's wireframes — for each screen:]
+[From Rogue's wireframes — for each screen:]
 - Layout description
 - Component inventory
 - Content hierarchy
@@ -91,14 +91,14 @@ qa_verdict: [GO/CONDITIONAL/NO-GO from Sage]
 - State variations (empty, loading, error, populated, disabled)
 
 ## 7. Interaction Patterns
-[From Kai's interaction maps and state diagrams]
+[From Rogue's interaction maps and state diagrams]
 - Triggers and responses
 - State transitions
 - Micro-interactions
 - Keyboard/accessibility interactions
 
 ## 8. Content & Copy
-[From Echo's work:]
+[From Warlock's work:]
 ### Voice & Tone
 [Summary of voice-tone.md]
 
@@ -112,7 +112,7 @@ qa_verdict: [GO/CONDITIONAL/NO-GO from Sage]
 [All empty states from empty-states.md]
 
 ## 9. Component Specifications
-[From Relay's component specs:]
+[From Healer's component specs:]
 For each component:
 - Props and variants
 - States
@@ -120,7 +120,7 @@ For each component:
 - Design token references
 
 ## 10. Design Tokens
-[From Relay's design tokens:]
+[From Healer's design tokens:]
 - Color tokens (semantic names)
 - Spacing scale
 - Typography scale
@@ -128,7 +128,7 @@ For each component:
 - Motion/animation tokens
 
 ## 11. Accessibility Requirements
-[Compiled from Sage's QA report + Nova's accessibility audit:]
+[Compiled from Sage's QA report + Ranger's accessibility audit:]
 - WCAG level target (AA/AAA)
 - Key accessibility requirements per screen
 - Screen reader behavior
@@ -154,14 +154,14 @@ For each component:
 ```
 
 ## Compilation Rules
-- PDX artifacts are the source of truth — UX_Design.md is a COMPILED SUMMARY, not a copy
+- Guild artifacts are the source of truth — UX_Design.md is a COMPILED SUMMARY, not a copy
 - For each section, include:
   - Key findings and decisions inline (enough for a developer to work with)
   - Reference link to full artifact: "Full details: _bmad-output/guild-artifacts/[file].md"
 - Personas section: include summary table + key design implications, reference full persona cards
 - Journey maps: include phases + top 3 pain points + moments of truth, reference full journey maps
 - Flows: include Mermaid diagrams inline (these are compact enough), reference full flow docs for edge cases
-- Copy: include final copy strings inline (developers need these), reference Echo's full content docs for rationale
+- Copy: include final copy strings inline (developers need these), reference Warlock's full content docs for rationale
 - Tokens: include token names and values inline (developers need these), reference full token file for descriptions
 - Component specs: include props table inline, reference full spec for states/ARIA/responsive details
 - NEVER exceed 2000 lines — if the summary is too long, you're including too much detail. Summarize more, link more.
@@ -182,5 +182,5 @@ finds it automatically.
 ## Post-Export
 Report:
 1. "UX_Design.md generated — [X] sections, [Y] lines"
-2. "Compiled from [Z] PDX artifacts"
+2. "Compiled from [Z] Guild artifacts"
 3. "Dev agent can now reference this via /dev-story"

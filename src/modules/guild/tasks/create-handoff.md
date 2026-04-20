@@ -2,7 +2,7 @@
 
 ## Purpose
 Generate developer-ready handoff artifacts using the specified template. This task is the
-core handoff engine for the PDX Design Ops agent.
+core handoff engine for the Guild Design Ops agent.
 
 ## Pre-flight Checks
 
@@ -25,21 +25,21 @@ Before creating any handoff artifact, perform these checks in order:
   - What's already been built (don't hand off work that's DONE)
 
 ### Artifact Source of Truth Rule
-PDX artifacts in _bmad-output/guild-artifacts/ are ALWAYS the source of truth.
+Guild artifacts in _bmad-output/guild-artifacts/ are ALWAYS the source of truth.
 When BMAD documents (PRD, architecture, UX_Design.md) need design content:
-- Write the FULL artifact to _bmad-output/guild-artifacts/ using PDX templates
+- Write the FULL artifact to _bmad-output/guild-artifacts/ using Guild templates
 - Write a SUMMARY in the BMAD document with key findings inline
 - REFERENCE the full artifact: "See full details: _bmad-output/guild-artifacts/[filename].md"
-- NEVER duplicate the full PDX artifact content inside a BMAD document
+- NEVER duplicate the full Guild artifact content inside a BMAD document
 - The summary should be enough for a PM to understand; the full artifact is for designers and developers
 
-### 1. Load ALL Prior PDX Artifacts
+### 1. Load ALL Prior Guild .rtifacts
 - Read `_bmad-output/planning-artifacts/project-context.md` if it exists
 - Read `_bmad-output/planning-artifacts/prd.md` if it exists
-- Read any flows or wireframes from Kai in `_bmad-output/guild-artifacts/`
-- Read any research or personas from Nova in `_bmad-output/guild-artifacts/`
+- Read any flows or wireframes from Rogue in `_bmad-output/guild-artifacts/`
+- Read any research or personas from Ranger in `_bmad-output/guild-artifacts/`
 - Read any QA reports from Sage in `_bmad-output/guild-artifacts/`
-- Read any content from Echo in `_bmad-output/guild-artifacts/`
+- Read any content from Warlock in `_bmad-output/guild-artifacts/`
 - Read `_bmad-output/guild-artifacts/design-tokens.json` if it exists
 
 ### 2. Gather Handoff Parameters from User
@@ -61,10 +61,10 @@ Ask the user for the following (skip any already provided):
 Before generating, restate the scope back to the user:
 - "Here's what I'll create: [handoff type] for [feature/screen],
   targeting [framework] in [sprint/release]. I'll reference [n] existing
-  artifacts from [Kai/Nova/Sage/Echo]. Sound right?"
+  artifacts from [Rogue/Ranger/Sage/Warlock]. Sound right?"
 
-### When generating stories from PDX artifacts:
-- Each story's design_artifacts field should reference the specific PDX artifact files
+### When generating stories from Guild artifacts:
+- Each story's design_artifacts field should reference the specific Guild artifact files
 - Example: design_artifacts: ["_bmad-output/guild-artifacts/user-flow-onboarding.md", "_bmad-output/guild-artifacts/wireframe-onboarding.md"]
 - The dev agent follows these references to get full design context
 - Don't inline the entire design spec in the story — reference it
@@ -80,7 +80,7 @@ expects these sections in this order:
 4. `## Tasks / Subtasks` — Checkboxes with AC references in parentheses
 5. `## Dev Notes` — Technical guidance
    - `### Project Structure Notes` — File paths for new/modified files
-   - `### References` — Links to PRD, architecture, PDX artifacts, related stories
+   - `### References` — Links to PRD, architecture, Guild artifacts, related stories
 6. `## Dev Agent Record` — Empty scaffolding (dev agent fills this in)
    - `### Agent Model Used`
    - `### Debug Log References`
@@ -100,11 +100,11 @@ DO NOT:
 All handoff deliverables must include:
 
 1. **Header Block** — Title, handoff type, version, date, target sprint, framework
-2. **Source Artifacts** — Links to all referenced Kai/Nova/Sage/Echo artifacts
+2. **Source Artifacts** — Links to all referenced Rogue/Ranger/Sage/Warlock artifacts
 3. **Specification Content** — Per template structure
 4. **Code-Ready References** — Token names, component props, ARIA attributes
 5. **Acceptance Criteria** — Given/When/Then for every scenario
-6. **Edge Cases** — From Kai's flows and Sage's QA reports
+6. **Edge Cases** — From Rogue's flows and Sage's QA reports
 7. **Open Questions** — Anything engineering needs to clarify
 8. **Next Steps** — Follow-up handoff artifacts needed
 
@@ -116,11 +116,11 @@ artifact: [handoff type]
 status: draft
 version: 1.0
 created: [date]
-author: Relay (Design Ops)
+author: Healer (Design Ops)
 target_sprint: "[sprint identifier]"
 engineering_framework: "[React|React Native|Vue|etc.]"
 source_artifacts:
-  - [list all referenced PDX artifacts]
+  - [list all referenced Guild artifacts]
 references:
   - [list design system, component library, Jira project]
 ---
@@ -132,8 +132,8 @@ references:
 - [ ] Design tokens referenced by name (not raw values)
 - [ ] Acceptance criteria in Given/When/Then format
 - [ ] ARIA roles and attributes specified for interactive elements
-- [ ] Copy is final (from Echo) not placeholder
-- [ ] Edge cases documented (from Kai and Sage)
+- [ ] Copy is final (from Warlock) not placeholder
+- [ ] Edge cases documented (from Rogue and Sage)
 - [ ] API/data requirements noted
 - [ ] Dependencies identified (blocked-by / blocks)
 - [ ] A developer can implement without asking a designer

@@ -2,7 +2,7 @@
 
 ## Purpose
 Execute a structured design quality assurance check using the specified template. This task
-is the core QA engine for the PDX Design QA agent.
+is the core QA engine for the Guild Design QA agent.
 
 ## Pre-flight Checks
 
@@ -24,21 +24,21 @@ Before executing any QA activity, perform these checks in order:
   - Use the same naming conventions the project uses
 
 ### Artifact Source of Truth Rule
-PDX artifacts in _bmad-output/guild-artifacts/ are ALWAYS the source of truth.
+Guild artifacts in _bmad-output/guild-artifacts/ are ALWAYS the source of truth.
 When BMAD documents (PRD, architecture, UX_Design.md) need design content:
-- Write the FULL artifact to _bmad-output/guild-artifacts/ using PDX templates
+- Write the FULL artifact to _bmad-output/guild-artifacts/ using Guild templates
 - Write a SUMMARY in the BMAD document with key findings inline
 - REFERENCE the full artifact: "See full details: _bmad-output/guild-artifacts/[filename].md"
-- NEVER duplicate the full PDX artifact content inside a BMAD document
+- NEVER duplicate the full Guild artifact content inside a BMAD document
 - The summary should be enough for a PM to understand; the full artifact is for designers and developers
 
 ### 1. Load Project Context
 - Read `_bmad-output/planning-artifacts/project-context.md` if it exists
 - Read `_bmad-output/planning-artifacts/prd.md` if it exists
 - Read `_bmad-output/guild-artifacts/design-tokens.json` if it exists
-- Read any existing heuristic evaluations from Nova in `_bmad-output/guild-artifacts/`
-- Read any existing accessibility audits from Nova in `_bmad-output/guild-artifacts/`
-- Read any existing flows or wireframes from Kai in `_bmad-output/guild-artifacts/`
+- Read any existing heuristic evaluations from Ranger in `_bmad-output/guild-artifacts/`
+- Read any existing accessibility audits from Ranger in `_bmad-output/guild-artifacts/`
+- Read any existing flows or wireframes from Rogue in `_bmad-output/guild-artifacts/`
 
 ### 2. Gather QA Parameters from User
 Ask the user for the following (skip any already provided):

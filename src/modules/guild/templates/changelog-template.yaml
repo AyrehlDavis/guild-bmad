@@ -16,7 +16,7 @@ structure:
     - to_version: "{new version}"
     - status: "draft"
     - created: "{date}"
-    - author: "Relay (Design Ops)"
+    - author: "Healer (Design Ops)"
 
   sections:
     - name: "Changelog Summary"

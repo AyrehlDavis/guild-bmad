@@ -136,6 +136,6 @@ structure:
 
     - name: "Next Steps"
       description: >
-        If READY: Proceed to Relay for handoff spec generation.
+        If READY: Proceed to Healer for handoff spec generation.
         If CONDITIONAL: Fix [n] blockers, then re-run pre-handoff.
         If NOT READY: Address critical gaps, run targeted QA checks.

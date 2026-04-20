@@ -16,7 +16,7 @@ structure:
     - status: "draft"
     - version: "1.0"
     - created: "{date}"
-    - author: "Relay (Design Ops)"
+    - author: "Healer (Design Ops)"
 
   sections:
     - name: "Token Overview"

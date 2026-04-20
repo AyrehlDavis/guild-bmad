@@ -16,7 +16,7 @@ structure:
     - status: "draft"
     - version: "1.0"
     - created: "{date}"
-    - author: "Nova (UX Researcher)"
+    - author: "Ranger (UX Researcher)"
     - confidence: "{high|medium|low}"
 
   sections:

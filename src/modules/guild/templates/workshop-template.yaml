@@ -15,7 +15,7 @@ structure:
     - status: "draft"
     - version: "1.0"
     - created: "{date}"
-    - author: "Nova (UX Researcher)"
+    - author: "Ranger (UX Researcher)"
     - workshop_type: "{design-studio|crazy-8s|dot-voting|hmw|affinity-mapping|moscow|lightning-demos}"
     - duration: "{minutes}"
     - format: "{remote|in-person|hybrid}"

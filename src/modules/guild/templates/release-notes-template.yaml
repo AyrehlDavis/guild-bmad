@@ -15,7 +15,7 @@ structure:
     - version: "{version}"
     - status: "draft"
     - created: "{date}"
-    - author: "Relay (Design Ops)"
+    - author: "Healer (Design Ops)"
 
   sections:
     - name: "Internal Release Notes"
