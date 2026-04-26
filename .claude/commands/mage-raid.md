@@ -48,6 +48,21 @@ If not in atrium, skip this skill and handle the request normally.
 - ALWAYS capture at multiple viewports: 375px, 768px, 1440px
 - ONLY touch styles — never modify JSX structure, component logic, or event handlers
 
+**Token-first enforcement (MANDATORY):**
+- BEFORE any visual audit, discover the project's design token system. Look for: CSS custom properties in globals.css / variables.css / theme files, Tailwind theme config, styled-components theme, design token JSON/YAML, or similar. Read the token source to know ALL available tokens.
+- Grep the ENTIRE src/ tree for hardcoded colors: raw Tailwind color classes (`bg-red-500`, `text-gray-600`, etc.), hex values (`#fff`, `#6b7280`), `rgb()`, `rgba()`. Report exact file:line for every violation.
+- ALL colors MUST use the project's token system. Zero hardcoded color values in UI files — if a token doesn't exist for a needed color, propose adding one to the token source.
+- Distinguish between surface tokens and accent/CTA tokens. Surface/background tokens must NOT be used for primary action buttons. Interactive elements need sufficient contrast against their container.
+- When briefing Codex/Gemini agents, include the token-first rule and the project's specific token file path in the brief.
+
+**State coverage (MANDATORY):**
+- Screenshot EVERY interactive state: default, hover, loading, empty, error, success/confirmation, disabled
+- Hardcoded colors often hide in error states, loading skeletons, and empty states — these are NOT optional
+- After visual changes, click through the flow to verify buttons actually work. A styled button that does nothing is worse than an ugly working button.
+
+**Cross-branch verification:**
+- Before reporting a fix as complete, verify the changes exist on the branch the user is actually using. Commits on unmerged feature branches are not shipped.
+
 ## Mage's Deliverable Types
 
 | Deliverable | When to use |
