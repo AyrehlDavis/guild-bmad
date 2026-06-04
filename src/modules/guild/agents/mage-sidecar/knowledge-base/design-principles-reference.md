@@ -143,6 +143,8 @@ Design mobile-first, then enhance for larger screens.
 - Too many font sizes (max 3 per screen)
 - Competing visual weights (multiple bold/accent elements)
 - Decorative elements that don't serve content
+- Decorative icon trios used to make a 3-up section feel "designed" (shield / network-lines / warning trios are the stock SaaS vocabulary that re-genericizes a section)
+- Imagery added because the page felt "empty," without asking what domain artifact could go there instead
 
 ### Unclear States
 - Button that looks disabled but isn't
@@ -164,3 +166,36 @@ Design mobile-first, then enhance for larger screens.
 - Error messages that don't explain what's wrong
 - Submit button that doesn't show loading state
 - Success state that doesn't confirm what was submitted
+
+## Imagery & Iconography
+
+### Domain Artifacts > Decorative Imagery
+Prefer visuals that **show the domain** over visuals that **decorate the page**.
+
+A *domain artifact* is a UI fragment that previews the actual thing the user works with — a bill row, a renewal-window timeline, a supplier bid stack, a PDF cover, a sample disclosure receipt, a tiny tabular mockup. These earn their place because they teach the user something about the problem space while they're scanning.
+
+A *decorative visual* is an icon, illustration, or stock image that exists to make the page feel "designed" — shield-icons, network-line-icons, hero photography of someone at a laptop, abstract gradients with no informational role. These work against editorial / decision-tool pages because they signal "marketing template" and dilute the authored voice.
+
+**The test (apply to any visual you're about to add):**
+> If you removed it, would the section lose *information about the domain*, or would it just look *plainer*?
+>
+> - Information loss → keep it. It's an artifact.
+> - Just plainer → it's decoration; cut it or replace it with an artifact.
+
+**When decorative imagery is OK:**
+- Hero or empty-state moments where the page surface needs visual weight and there's no relevant domain artifact yet
+- Brand moments (logo, signature mark, a single "— Arise" sig line)
+- Inline typographic emphasis (a single ✓ in a pledge list, a ▸ before a callout)
+
+**When decorative imagery hurts:**
+- 3-up / 4-up "feature" grids where each cell gets a generic icon
+- Editorial sections that just argued their way out of looking generic — adding icons re-genericizes them instantly
+- Pages whose strength is judgment, clarity, or analysis (decision tools, dashboards, analytical artifacts)
+- Any section adjacent to another section that already uses the same icon family — they parse as "two halves of the same module"
+
+**Substitution patterns (when tempted to add icons, try these first):**
+- 3-up feature grid w/ icons → asymmetric layout with one "artifact card" carrying a domain micro-artifact (sample receipt, mini-table, signed pledge)
+- Hero w/ stock photo → abstract UI preview of the tool itself
+- "Why us" section with icon trio → small, embedded artifact (mini-table, signed disclosure, real numbers)
+- Trust / transparency section with shield icon → sample of the actual disclosure (a fee-row mockup, a screenshotted contract line)
+- Status section with abstract dot icons → real status data (a tiny gauge, a numbered streak, a tabular readout)
